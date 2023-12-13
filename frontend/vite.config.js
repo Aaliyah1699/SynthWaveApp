@@ -13,11 +13,10 @@ export default defineConfig({
             exclude: [],
         }),
     ],
-    // server: {
-    //     // proxy requests prefixed '/api' and '/uploads'
-    //     proxy: {
-    //         '/api': 'http://localhost:5000',
-    //         '/uploads': 'http://localhost:5000',
-    //     },
-    // },
+    server: {
+        proxy: {
+            '/api': 'http://localhost:5000',
+            '/uploads': 'http://localhost:5000',
+        },
+    },
 });
