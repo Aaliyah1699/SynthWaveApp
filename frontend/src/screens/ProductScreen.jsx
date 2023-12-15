@@ -1,8 +1,10 @@
 import { Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import { Row, Col, Image, ListGroup, Card, Button } from 'react-bootstrap';
-import Rating from '../components/Rating';
 import { useGetSingleProductQuery } from '../slices/productsApiSlice.js';
+import Rating from '../components/Rating';
+import Loading from '../components/Loading.jsx';
+import Message from '../components/Message.jsx';
 
 const ProductScreen = () => {
     const { id: productId } = useParams();
@@ -17,10 +19,13 @@ const ProductScreen = () => {
             <Link className='btn btn-dark neon-hover kalnia-l btn-hover my-3'>
                 Go Back
             </Link>
+
             {isLoading ? (
-                <h2 className='kalnia-l'>Loading...</h2>
+                <Loading />
             ) : error ? (
-                <div>{error?.data?.message || error.error}</div>
+                <Message variant='danger'>
+                    {error?.data?.message || error.error}
+                </Message>
             ) : (
                 <>
                     {' '}

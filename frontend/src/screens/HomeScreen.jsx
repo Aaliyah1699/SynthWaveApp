@@ -2,6 +2,8 @@ import { Row, Col } from 'react-bootstrap';
 import Product from '../components/Product';
 import { GiHypersonicBolt } from 'react-icons/gi';
 import { useGetAllProductsQuery } from '../slices/productsApiSlice.js';
+import Loading from '../components/Loading.jsx';
+import Message from '../components/Message.jsx';
 
 const HomeScreen = () => {
     const { data: products, isLoading, error } = useGetAllProductsQuery();
@@ -9,9 +11,11 @@ const HomeScreen = () => {
     return (
         <>
             {isLoading ? (
-                <h2 className='kalnia-l'>Loading...</h2>
+                <Loading />
             ) : error ? (
-                <div>{error?.data?.message || error.error}</div>
+                <Message variant='danger'>
+                    {error?.data?.message || error.error}
+                </Message>
             ) : (
                 <>
                     {' '}
