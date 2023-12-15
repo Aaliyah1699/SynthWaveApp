@@ -4,8 +4,7 @@ import Product from '../models/ProductModel.js';
 // Fetch all products  // route -> GET /api/products // access => Public
 const getAllProducts = asyncHandler(async (req, res) => {
     const products = await Product.find({});
-
-    res.json({ products, count: products.length });
+    res.json(products);
 });
 
 // Get single product by id  // route -> GET /api/products/:id // access => Public
