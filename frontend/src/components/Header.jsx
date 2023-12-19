@@ -21,8 +21,8 @@ const Header = () => {
             >
                 <Container>
                     <LinkContainer to='/'>
-                        <Navbar.Brand className='neon-pink fs-1 black-ops m-s-xxl neon-hover'>
-                            G<TfiBolt />G
+                        <Navbar.Brand className='fs-1 black-ops m-s-xxl neon-pink-hover'>
+                            G<TfiBolt className='neon-pink neon-hover' />G
                         </Navbar.Brand>
                     </LinkContainer>
                     <Navbar.Toggle aria-controls='basic-navbar-nav'>
