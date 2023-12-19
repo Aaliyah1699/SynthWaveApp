@@ -1,13 +1,25 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
-import { Row, Col, Image, ListGroup, Card, Button } from 'react-bootstrap';
-import { useGetSingleProductQuery } from '../slices/productsApiSlice.js';
+import {
+    Row,
+    Col,
+    Image,
+    ListGroup,
+    Card,
+    Button,
+    Form,
+} from 'react-bootstrap';
+import { useGetSingleProductQuery } from '../slices/productsApiSlice';
 import Rating from '../components/Rating';
-import Loading from '../components/Loading.jsx';
-import Message from '../components/Message.jsx';
+import Loading from '../components/Loading';
+import Message from '../components/Message';
 
 const ProductScreen = () => {
     const { id: productId } = useParams();
+
+    const [qty, setQty] = useState(1);
+
     const {
         data: product,
         isLoading,
@@ -78,6 +90,41 @@ const ProductScreen = () => {
                                             </Col>
                                         </Row>
                                     </ListGroup.Item>
+                                    {product.countInStock > 0 && (
+                                        <ListGroup.Item className='bg-black text-white kalnia-r '>
+                                            <Row className='text-white bg-black'>
+                                                <Col>Quantity:</Col>
+                                                <Col>
+                                                    <Form.Control
+                                                        as='select'
+                                                        value={qty}
+                                                        onChange={(e) =>
+                                                            setQty(
+                                                                Number(
+                                                                    e.target
+                                                                        .value
+                                                                )
+                                                            )
+                                                        }
+                                                        className='bg-black text-white kalnia-r'
+                                                    >
+                                                        {[
+                                                            ...Array(
+                                                                product.countInStock
+                                                            ).keys(),
+                                                        ].map((x) => (
+                                                            <option
+                                                                key={x + 1}
+                                                                value={x + 1}
+                                                            >
+                                                                {x + 1}
+                                                            </option>
+                                                        ))}
+                                                    </Form.Control>
+                                                </Col>
+                                            </Row>
+                                        </ListGroup.Item>
+                                    )}
                                     <ListGroup.Item className='bg-black text-white'>
                                         <Button
                                             className='btn-block btn-dark neon-hover kalnia-l btn-hover'
