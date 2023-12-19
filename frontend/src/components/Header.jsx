@@ -1,11 +1,15 @@
-import { Navbar, Nav, Container } from 'react-bootstrap';
+import { Navbar, Nav, Container, Badge } from 'react-bootstrap';
 import { TbShoppingCartBolt, TbUserBolt } from 'react-icons/tb';
 import { CgMenuGridR } from 'react-icons/cg';
 import { TfiBolt } from 'react-icons/tfi';
 import { LinkContainer } from 'react-router-bootstrap';
+import { useSelector } from 'react-redux';
 
-//  Colors dark, light(white), info(turquoise)
 const Header = () => {
+    // Display num of items in cart (accessing the state)
+    const { cartItems } = useSelector((state) => state.cart);
+    console.log(cartItems);
+
     return (
         <header>
             <Navbar
@@ -32,6 +36,19 @@ const Header = () => {
                                     <span className='neon-pink-hover'>
                                         Cart
                                     </span>
+                                    {cartItems.length > 0 && (
+                                        <Badge
+                                            pill
+                                            style={{ marginLeft: '5px' }}
+                                            className='neon-pink kalnia-m'
+                                            bg='light'
+                                        >
+                                            {cartItems.reduce(
+                                                (a, c) => a + c.qty,
+                                                0
+                                            )}
+                                        </Badge>
+                                    )}
                                 </Nav.Link>
                             </LinkContainer>
                             <LinkContainer to='/login'>
