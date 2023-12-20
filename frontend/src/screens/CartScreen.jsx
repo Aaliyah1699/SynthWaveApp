@@ -26,6 +26,9 @@ const CartScreen = () => {
     const removeFromCartHandler = async (id) => {
         dispatch(removeFromCart(id));
     };
+    const checkoutHandler = () => {
+        navigate('/login?redirect=/shipping');
+    };
 
     return (
         <Row>
@@ -133,6 +136,7 @@ const CartScreen = () => {
                                 type='button'
                                 className='btn-block btn-hover bg-dark kalnia-l'
                                 disabled={cartItems.length === 0}
+                                onClick={checkoutHandler}
                             >
                                 Proceed to checkout (
                                 {cartItems.reduce(
