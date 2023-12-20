@@ -13,7 +13,7 @@ const cartSlice = createSlice({
             const item = action.payload;
             const itemExist = state.cartItems.find((i) => i._id === item._id);
             if (itemExist) {
-                state.cartItems.map((i) =>
+               state.cartItems =  state.cartItems.map((i) =>
                     i._id === itemExist._id ? item : i
                 );
             } else {
