@@ -11,7 +11,7 @@ import {
 import Message from '../components/Message';
 import { GrTrash } from 'react-icons/gr';
 import { useSelector, useDispatch } from 'react-redux';
-import { addToCart } from '../slices/cartSlice';
+import { addToCart, removeFromCart } from '../slices/cartSlice';
 
 const CartScreen = () => {
     const navigate = useNavigate();
@@ -22,6 +22,9 @@ const CartScreen = () => {
 
     const addToCartHandler = async (product, qty) => {
         dispatch(addToCart({ ...product, qty }));
+    };
+    const removeFromCartHandler = async (id) => {
+        dispatch(removeFromCart(id));
     };
 
     return (
@@ -94,6 +97,9 @@ const CartScreen = () => {
                                         <Button
                                             type='button'
                                             className='bg-black border-0'
+                                            onClick={() =>
+                                                removeFromCartHandler(item._id)
+                                            }
                                         >
                                             <GrTrash className='neon-pink neon-hover' />
                                         </Button>
