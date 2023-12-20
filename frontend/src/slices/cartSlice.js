@@ -13,7 +13,7 @@ const cartSlice = createSlice({
             const item = action.payload;
             const itemExist = state.cartItems.find((i) => i._id === item._id);
             if (itemExist) {
-               state.cartItems =  state.cartItems.map((i) =>
+                state.cartItems = state.cartItems.map((i) =>
                     i._id === itemExist._id ? item : i
                 );
             } else {
@@ -22,9 +22,15 @@ const cartSlice = createSlice({
 
             return calculatePrice(state);
         },
+        removeFromCart: (state, action) => {
+            state.cartItems = state.cartItems.filter(
+                (x) => x._id !== action.payload
+            );
+            return calculatePrice(state);
+        },
     },
 });
 
-export const { addToCart } = cartSlice.actions;
+export const { addToCart, removeFromCart } = cartSlice.actions;
 
 export default cartSlice.reducer;
