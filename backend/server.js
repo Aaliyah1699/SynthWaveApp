@@ -16,6 +16,10 @@ app.get('/', (req, res) => {
     res.send('API is running...');
 });
 
+// Parser middleware
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
 // Routes
 app.use('/api/products', productRoutes);
 app.use('/api/users', userRoutes);
