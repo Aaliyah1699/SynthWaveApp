@@ -16,7 +16,10 @@ import {
 router.route('/').post(registerUser).get(protect, admin, getAllUsers);
 router.post('/login', loginUser);
 router.post('/logout', logoutUser);
-router.route('/profile').get(protect, getUserProfile).put(protect, updateUserProfile);
+router
+    .route('/profile')
+    .get(protect, getUserProfile)
+    .put(protect, updateUserProfile);
 router
     .route('/:id')
     .get(protect, admin, getSingleUser)
