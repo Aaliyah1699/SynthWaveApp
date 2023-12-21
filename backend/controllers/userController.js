@@ -1,11 +1,26 @@
 import asyncHandler from '../middleware/asyncHandler.js';
 import User from '../models/UserModel.js';
+import jwt from 'jsonwebtoken';
 
 // Login user & get token  // route -> POST /api/users/login // access => Public
 const loginUser = asyncHandler(async (req, res) => {
     const { email, password } = req.body;
     const user = await User.findOne({ email });
     if (user && (await user.comparePassword(password))) {
+        // expiresIn: process.env.JWT_LIFETIME,
+        const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, {
+            expiresIn: '30d',
+        });
+
+        res.cookie('token', token, {
+            httpOnly: true,
+            // expires: new Date(Date.now() + oneDay),
+            secure: process.env.NODE_ENV === 'production',
+            //signed: true,
+            sameSite: 'strict',
+            maxAge: 30 * 24 * 60 * 60 * 1000, // 30 days
+        });
+
         res.json({
             _id: user._id,
             name: user.name,
