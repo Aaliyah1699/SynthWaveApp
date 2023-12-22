@@ -86,8 +86,9 @@ const LoginScreen = () => {
                                 : '/register'
                         }
                         className='link product-link'
+                        style={{ textDecoration: 'underline' }}
                     >
-                        Register Here
+                        Register
                     </Link>
                 </Col>
             </Row>
