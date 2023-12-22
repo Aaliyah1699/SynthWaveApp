@@ -52,6 +52,7 @@ const Header = () => {
                         <Nav className='ms-auto'>
                             {/* Cart */}
                             <LinkContainer to='/cart'>
+                                {/* Sign in */}
                                 <Nav.Link className='text-white kalnia-l neon-pink-hover'>
                                     <TbShoppingCartBolt className='neon-pink' />{' '}
                                     <span className='neon-pink-hover'>
@@ -99,7 +100,6 @@ const Header = () => {
                                     </Nav.Link>
                                 </LinkContainer>
                             )}
-                            {/* Sign in */}
                         </Nav>
                     </Navbar.Collapse>
                 </Container>
