@@ -37,7 +37,10 @@ const ProductScreen = () => {
 
     return (
         <>
-            <Link className='btn btn-dark neon-hover kalnia-l btn-hover my-3'>
+            <Link
+                className='btn btn-dark neon-hover kalnia-l btn-hover my-3'
+                to='/'
+            >
                 Go Back
             </Link>
 
