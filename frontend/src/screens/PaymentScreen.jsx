@@ -48,7 +48,7 @@ const PaymentScreen = () => {
                         ></Form.Check>
                     </Col>
                 </Form.Group>
-                <Button type='submit' variant='dark' className='btn-hover'>
+                <Button type='submit' variant='dark' className='btn-hover kalnia-l'>
                     Continue
                 </Button>
             </Form>

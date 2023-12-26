@@ -72,7 +72,11 @@ const ShippingScreen = () => {
                     ></Form.Control>
                 </Form.Group>
                 {/* Button */}
-                <Button type='submit' variant='dark' className='my-2 btn-hover'>
+                <Button
+                    type='submit'
+                    variant='dark'
+                    className='my-2 btn-hover kalnia-l'
+                >
                     Continue
                 </Button>
             </Form>
