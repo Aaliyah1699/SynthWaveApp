@@ -59,6 +59,44 @@ const OrderScreen = () => {
         }
     }, [order, paypal, payPalError, paypalDispatch, loadingPayPal]);
 
+    // Paypal button functions
+    function onApprove(data, actions) {
+        return actions.order.capture().then(async function (details) {
+            try {
+                await payOrder({ orderId, details });
+                refetch(); // change not paid to paid
+                toast.success('Payment Successful');
+            } catch (error) {
+                toast.error('An error occurred. Please try again.');
+            }
+        });
+    }
+    function onError(err) {
+        toast.error(err.message);
+    }
+    function createOrder(data, actions) {
+        return actions.order
+            .create({
+                purchase_units: [
+                    {
+                        amount: {
+                            value: order.totalPrice,
+                        },
+                    },
+                ],
+            })
+            .then((orderId) => {
+                return orderId;
+            });
+    }
+
+    // Test button for development
+    // async function onApproveTest() {
+    //     await payOrder({ orderId, details: { payer: {} } });
+    //     refetch(); // change not paid to paid
+    //     toast.success('Payment Successful');
+    // }
+
     return isLoading ? (
         <Loading />
     ) : error ? (
@@ -173,7 +211,32 @@ const OrderScreen = () => {
                                     <Col>${order.totalPrice}</Col>
                                 </Row>
                             </ListGroup.Item>
-                            {/* Pay order*/}
+                            {/* Pay order Button*/}
+                            {!order.isPaid && (
+                                <ListGroup.Item className='bg-black text kalnia-r'>
+                                    {loadingPay && <Loading />}
+                                    {isPending ? (
+                                        <Loading />
+                                    ) : (
+                                        <div>
+                                             {/* Test button for development */}
+                                            {/* <Button
+                                                onClick={onApproveTest}
+                                                style={{ marginBottom: '10px' }}
+                                            >
+                                                Test Pay Order
+                                            </Button> */}
+                                            <div>
+                                                <PayPalButtons
+                                                    createOrder={createOrder}
+                                                    onApprove={onApprove}
+                                                    onError={onError}
+                                                ></PayPalButtons>
+                                            </div>
+                                        </div>
+                                    )}
+                                </ListGroup.Item>
+                            )}
                             {/* Mark as delivered */}
                         </ListGroup>
                     </Card>
