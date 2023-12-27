@@ -1,4 +1,3 @@
-import { orderApiSlice } from '../../frontend/src/slices/ordersApiSlice.js';
 import asyncHandler from '../middleware/asyncHandler.js';
 import Order from '../models/OrderModel.js';
 // import Product from '../models/ProductModel.js';
