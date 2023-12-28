@@ -59,10 +59,7 @@ const ProfileScreen = () => {
                 {/* Form */}
                 <Form onSubmit={submitHandler}>
                     {/* Name */}
-                    <Form.Group
-                        controlId='name'
-                        className='my-2 text kalnia-r'
-                    >
+                    <Form.Group controlId='name' className='my-2 text kalnia-r'>
                         <Form.Label>Name:</Form.Label>
                         <Form.Control
                             type='text'
@@ -74,7 +71,7 @@ const ProfileScreen = () => {
                     {/* Email */}
                     <Form.Group
                         controlId='email'
-                        className='my-2 bg-black text kalnia-r'
+                        className='my-2  text kalnia-r'
                     >
                         <Form.Label>Email:</Form.Label>
                         <Form.Control
@@ -87,7 +84,7 @@ const ProfileScreen = () => {
                     {/* Password */}
                     <Form.Group
                         controlId='password'
-                        className='my-2 bg-black text kalnia-r'
+                        className='my-2  text kalnia-r'
                     >
                         <Form.Label>Password:</Form.Label>
                         <Form.Control
@@ -100,7 +97,7 @@ const ProfileScreen = () => {
                     {/* Confirm Password */}
                     <Form.Group
                         controlId='confirmPassword'
-                        className='my-2 bg-black text kalnia-r'
+                        className='my-2  text kalnia-r'
                     >
                         <Form.Label>Confirm Password:</Form.Label>
                         <Form.Control
@@ -136,7 +133,8 @@ const ProfileScreen = () => {
                         striped
                         hover
                         responsive
-                        className='table-sm kalnia-r bg-black'
+                        variant='dark'
+                        className='table-sm kalnia-r '
                     >
                         <thead>
                             <tr>
