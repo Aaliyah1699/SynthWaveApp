@@ -110,7 +110,7 @@ const OrderScreen = () => {
                 <Col md={8}>
                     <ListGroup variant='flush'>
                         {/* Order shipping confirmation */}
-                        <ListGroup.Item className='bg-black text kalnia-r'>
+                        <ListGroup.Item className='kalnia-r'>
                             <h3>Shipping</h3>
                             <p className='kalnia-l'>
                                 <strong>Name: </strong> {order.user.name}
@@ -137,7 +137,7 @@ const OrderScreen = () => {
                             )}
                         </ListGroup.Item>
                         {/* Payment */}
-                        <ListGroup.Item className='bg-black text kalnia-r'>
+                        <ListGroup.Item className='kalnia-r'>
                             <h3>Payment Method</h3>
                             <p className='kalnia-l'>
                                 <strong>Method: </strong>
@@ -153,12 +153,12 @@ const OrderScreen = () => {
                             )}
                         </ListGroup.Item>
                         {/* Order Items */}
-                        <ListGroup.Item className='bg-black text kalnia-r'>
+                        <ListGroup.Item className='kalnia-r'>
                             <h3>Order Items</h3>
                             {order.orderItems.map((item, index) => (
                                 <ListGroup.Item
                                     key={index}
-                                    className='bg-black text kalnia-r'
+                                    className='kalnia-r'
                                 >
                                     <Row>
                                         <Col md={1}>
@@ -190,10 +190,10 @@ const OrderScreen = () => {
                 <Col md={4}>
                     <Card>
                         <ListGroup variant='flush'>
-                            <ListGroup.Item className='bg-black text kalnia-r'>
+                            <ListGroup.Item className=' kalnia-r'>
                                 <h3>Order Summary</h3>
                             </ListGroup.Item>
-                            <ListGroup.Item className='bg-black text kalnia-r'>
+                            <ListGroup.Item className='kalnia-r'>
                                 <Row>
                                     <Col>Items:</Col>
                                     <Col>${order.itemsPrice}</Col>
@@ -213,7 +213,7 @@ const OrderScreen = () => {
                             </ListGroup.Item>
                             {/* Pay order Button*/}
                             {!order.isPaid && (
-                                <ListGroup.Item className='bg-black text kalnia-r'>
+                                <ListGroup.Item className='kalnia-r'>
                                     {loadingPay && <Loading />}
                                     {isPending ? (
                                         <Loading />

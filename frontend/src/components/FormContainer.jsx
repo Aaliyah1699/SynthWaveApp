@@ -4,8 +4,8 @@ const FormContainer = ({ children }) => {
     return (
         <Container>
             <Row
-                className='justify-content-md-center kalnia-r bg-black'
-                style={{ color: 'white' }}
+                className='justify-content-md-center kalnia-r '
+               
             >
                 <Col xs={12} md={6}>
                     {children}

@@ -61,7 +61,7 @@ const ProfileScreen = () => {
                     {/* Name */}
                     <Form.Group
                         controlId='name'
-                        className='my-2 bg-black text kalnia-r'
+                        className='my-2 text kalnia-r'
                     >
                         <Form.Label>Name:</Form.Label>
                         <Form.Control
