@@ -24,7 +24,7 @@ import PaymentScreen from './screens/PaymentScreen.jsx';
 import PlaceOrderScreen from './screens/PlaceOrderScreen.jsx';
 import OrderScreen from './screens/OrderScreen.jsx';
 import ProfileScreen from './screens/ProfileScreen.jsx';
-import OrderListScreen from './screens/OrderListScreen.jsx';
+import OrderListScreen from './screens/admin/OrderListScreen.jsx';
 
 const router = createBrowserRouter(
     createRoutesFromElements(
