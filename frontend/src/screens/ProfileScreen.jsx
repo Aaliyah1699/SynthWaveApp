@@ -19,7 +19,7 @@ const ProfileScreen = () => {
 
     const { userInfo } = useSelector((state) => state.auth);
 
-    // const { data: orders, isLoading, error } = useGetMyOrdersQuery();
+    const { data: orders, isLoading, error } = useGetMyOrdersQuery();
 
     const [updateProfile, { isLoading: loadingUpdateProfile }] =
         useProfileMutation();
@@ -55,7 +55,7 @@ const ProfileScreen = () => {
         <Row>
             {/* Form with user data */}
             <Col md={3}>
-                <h2 className='kalnia-l'>{userInfo.name} Profile</h2>
+                <h2 className='kalnia-l'>My Profile</h2>
                 {/* Form */}
                 <Form onSubmit={submitHandler}>
                     {/* Name */}
@@ -122,7 +122,76 @@ const ProfileScreen = () => {
                 </Form>
             </Col>
             {/* Users orders */}
-            <Col md={9}></Col>
+            <Col md={9}>
+                <h2 className='kalnia-l'>Order History</h2>
+                {isLoading ? (
+                    <Loading />
+                ) : error ? (
+                    <Message variant='danger'>
+                        {error?.data?.message || error.error}
+                    </Message>
+                ) : (
+                    // Order Table
+                    <Table
+                        striped
+                        hover
+                        responsive
+                        className='table-sm kalnia-r bg-black'
+                    >
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Date</th>
+                                <th>Total</th>
+                                <th>Paid</th>
+                                <th>Delivered</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {orders.map((order) => (
+                                <tr key={order._id}>
+                                    <td
+                                        style={{
+                                            borderBottom: '1px solid #ccc',
+                                        }}
+                                    >
+                                        {order._id}
+                                    </td>
+                                    <td>{order.createdAt.substring(0, 10)}</td>
+                                    <td>{order.totalPrice}</td>
+                                    <td>
+                                        {order.isPaid ? (
+                                            order.paidAt.substring(0, 10)
+                                        ) : (
+                                            <FaTimes style={{ color: 'red' }} />
+                                        )}
+                                    </td>
+                                    <td>
+                                        {order.isDelivered ? (
+                                            order.deliveredAt.substring(0, 10)
+                                        ) : (
+                                            <FaTimes style={{ color: 'red' }} />
+                                        )}
+                                    </td>
+                                    <td>
+                                        <LinkContainer
+                                            to={`/order/${order._id}`}
+                                        >
+                                            <Button
+                                                className='btn-sm btn-hover kalnia-l'
+                                                variant='dark'
+                                            >
+                                                Details
+                                            </Button>
+                                        </LinkContainer>
+                                    </td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </Table>
+                )}
+            </Col>
         </Row>
     );
 };
