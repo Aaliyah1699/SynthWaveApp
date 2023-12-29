@@ -30,13 +30,7 @@ const Header = () => {
 
     return (
         <header>
-            <Navbar
-                bg='black'
-                variant='dark'
-                expand='md'
-                collapseOnSelect
-                className='neon-shadow-pink'
-            >
+            <Navbar bg='black' variant='dark' expand='md' collapseOnSelect>
                 <Container>
                     {/* Nav Title */}
                     <LinkContainer to='/'>
@@ -108,7 +102,7 @@ const Header = () => {
                                 <NavDropdown
                                     title='Admin'
                                     id='adminmenu'
-                                    className='kalnia-r'
+                                    className='kalnia-r '
                                     menuVariant='dark'
                                 >
                                     <LinkContainer to='/admin/userlist'>

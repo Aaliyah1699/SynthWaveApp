@@ -22,7 +22,7 @@ const OrderListScreen = () => {
                     striped
                     hover
                     responsive
-                    variant='dark'
+                    // variant='dark'
                     className='table-sm kalnia-r'
                 >
                     <thead>

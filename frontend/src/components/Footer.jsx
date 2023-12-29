@@ -4,7 +4,7 @@ import { FaGithub } from 'react-icons/fa';
 const Footer = () => {
     const currentYear = new Date().getFullYear();
     return (
-        <footer className='bg-black text-white'>
+        <footer className=''>
             <Container>
                 <Row>
                     <Col className='text-center py-3'>
