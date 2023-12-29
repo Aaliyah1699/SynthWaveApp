@@ -13,10 +13,28 @@ import Loading from '../../components/Loading';
 // import Paginate from '../../components/Paginate';
 
 const ProductListScreen = () => {
-    const { data: products, isLoading, error } = useGetAllProductsQuery();
+    const {
+        data: products,
+        isLoading,
+        error,
+        refetch,
+    } = useGetAllProductsQuery();
+    const [createProduct, { isLoading: loadingCreate }] =
+        useCreateProductMutation();
 
     const deleteHandler = (id) => {
         console.log('delete', id);
+    };
+
+    const createProductHandler = async () => {
+        if (window.confirm('Are you sure you want to create a new product?')) {
+            try {
+                await createProduct();
+                refetch();
+            } catch (err) {
+                toast.error(err?.data?.message || err.message);
+            }
+        }
     };
 
     return (
@@ -25,10 +43,14 @@ const ProductListScreen = () => {
                 <h2 className='kalnia-r'>Products</h2>
             </Col>
             <Col className='text-end'>
-                <Button className='btn-sm m-3 kalnia-l bg-dark'>
+                <Button
+                    className='btn-sm m-3 kalnia-l bg-dark'
+                    onClick={createProductHandler}
+                >
                     <TbPencilBolt /> Create Product
                 </Button>
             </Col>
+            {loadingCreate && <Loading />}
             {isLoading ? (
                 <Loading />
             ) : error ? (
