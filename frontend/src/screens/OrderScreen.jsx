@@ -1,14 +1,6 @@
 import { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import {
-    ListGroup,
-    Button,
-    Row,
-    Col,
-    Image,
-    Card,
-    Form,
-} from 'react-bootstrap';
+import { ListGroup, Button, Row, Col, Image, Card } from 'react-bootstrap';
 import { toast } from 'react-toastify';
 import { useSelector } from 'react-redux';
 import { PayPalButtons, usePayPalScriptReducer } from '@paypal/react-paypal-js';
