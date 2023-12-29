@@ -10,7 +10,7 @@ const cartSlice = createSlice({
     initialState,
     reducers: {
         addToCart: (state, action) => {
-            const item = action.payload;
+            const { ...item } = action.payload;
 
             const itemExist = state.cartItems.find((i) => i._id === item._id);
             if (itemExist) {
@@ -31,8 +31,7 @@ const cartSlice = createSlice({
         },
         saveShippingAddress: (state, action) => {
             state.shippingAddress = action.payload;
-            // localStorage.setItem('cart', JSON.stringify(state));
-            return calculatePrice(state);
+            localStorage.setItem('cart', JSON.stringify(state));
         },
         savePaymentMethod: (state, action) => {
             state.paymentMethod = action.payload;
@@ -40,10 +39,9 @@ const cartSlice = createSlice({
         },
         clearCartItems: (state, action) => {
             state.cartItems = [];
-            // localStorage.setItem('cart', JSON.stringify(state));
-            return calculatePrice(state);
+            localStorage.setItem('cart', JSON.stringify(state));
         },
-        // resetCart: (state) => (state = initialState),
+        resetCart: (state) => (state = initialState),
     },
 });
 
