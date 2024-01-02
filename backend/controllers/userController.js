@@ -96,14 +96,14 @@ const updateUserProfile = asyncHandler(async (req, res) => {
 // Get all users // route -> GET /api/users // access => Private/Admin
 const getAllUsers = asyncHandler(async (req, res) => {
     const users = await User.find({});
-    res.status(200).res.json(users);
+    res.json(users);
 });
 // Get single user by id // route -> GET /api/users/:id // access => Private/Admin
 const getSingleUser = asyncHandler(async (req, res) => {
     const user = await User.findById(req.params.id).select('-password');
 
     if (user) {
-        res.status(200).res.json(user);
+       res.json(user);
     } else {
         res.status(404);
         throw new Error('User not found');
@@ -119,7 +119,7 @@ const deleteUser = asyncHandler(async (req, res) => {
             throw new Error('Can not delete admin user');
         }
         await User.deleteOne({ _id: user._id });
-        res.status(200).res.json({ message: 'User removed' });
+        res.json({ message: 'User removed' });
     } else {
         res.status(404);
         throw new Error('User not found');
@@ -136,7 +136,7 @@ const updateUser = asyncHandler(async (req, res) => {
 
         const updatedUser = await user.save();
 
-        res.status(200).res.json({
+        res.json({
             _id: updatedUser._id,
             name: updatedUser.name,
             email: updatedUser.email,
