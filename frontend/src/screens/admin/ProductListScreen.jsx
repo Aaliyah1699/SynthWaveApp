@@ -3,6 +3,7 @@ import { Table, Button, Row, Col } from 'react-bootstrap';
 import { toast } from 'react-toastify';
 import { GrTrash } from 'react-icons/gr';
 import { TbPencilBolt } from 'react-icons/tb';
+import { useParams } from 'react-router-dom';
 import {
     useGetAllProductsQuery,
     useDeleteProductMutation,
@@ -10,21 +11,20 @@ import {
 } from '../../slices/productsApiSlice';
 import Message from '../../components/Message';
 import Loading from '../../components/Loading';
-// import Paginate from '../../components/Paginate';
+import Paginate from '../../components/Paginate';
 
 const ProductListScreen = () => {
-    const {
-        data: products,
-        isLoading,
-        error,
-        refetch,
-    } = useGetAllProductsQuery();
+    const { pageNumber } = useParams();
+
+    const { data, isLoading, error, refetch } = useGetAllProductsQuery({
+        pageNumber,
+    });
 
     const [deleteProduct, { isLoading: loadingDelete }] =
         useDeleteProductMutation();
 
     const deleteHandler = async (id) => {
-        if (window.confirm('Are you sure?')) {
+        if (window.confirm('Are you sure you want to create a new product?')) {
             try {
                 await deleteProduct(id);
                 toast.success('Product deleted');
@@ -90,7 +90,7 @@ const ProductListScreen = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            {products.map((product) => (
+                            {data.products.map((product) => (
                                 <tr key={product._id}>
                                     <td>{product._id}</td>
                                     <td>{product.name}</td>
@@ -123,6 +123,11 @@ const ProductListScreen = () => {
                             ))}
                         </tbody>
                     </Table>
+                    <Paginate
+                        pages={data.pages}
+                        page={data.page}
+                        isAdmin={true}
+                    />
                 </>
             )}
         </Row>
