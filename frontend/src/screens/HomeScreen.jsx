@@ -6,7 +6,7 @@ import Loading from '../components/Loading.jsx';
 import Message from '../components/Message.jsx';
 
 const HomeScreen = () => {
-    const { data: products, isLoading, error } = useGetAllProductsQuery();
+    const { data, isLoading, error } = useGetAllProductsQuery();
 
     return (
         <>
@@ -25,7 +25,7 @@ const HomeScreen = () => {
                     </h1>
                     <h2 className='kalnia-l pt-3'>Latest Gadgets</h2>
                     <Row className='kalnia-r'>
-                        {products.map((product) => (
+                        {data.products.map((product) => (
                             <Col key={product._id} sm={12} md={6} lg={4} xl={3}>
                                 <Product product={product} />
                             </Col>
