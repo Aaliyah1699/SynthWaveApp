@@ -1,12 +1,15 @@
 import { Row, Col } from 'react-bootstrap';
-import Product from '../components/Product';
+import { useParams } from 'react-router-dom';
 import { GiHypersonicBolt } from 'react-icons/gi';
-import { useGetAllProductsQuery } from '../slices/productsApiSlice.js';
-import Loading from '../components/Loading.jsx';
-import Message from '../components/Message.jsx';
+import { useGetAllProductsQuery } from '../slices/productsApiSlice';
+import Product from '../components/Product';
+import Paginate from '../components/Paginate';
+import Loading from '../components/Loading';
+import Message from '../components/Message';
 
 const HomeScreen = () => {
-    const { data, isLoading, error } = useGetAllProductsQuery();
+    const { pageNumber } = useParams();
+    const { data, isLoading, error } = useGetAllProductsQuery({ pageNumber });
 
     return (
         <>
@@ -31,6 +34,7 @@ const HomeScreen = () => {
                             </Col>
                         ))}
                     </Row>
+                    <Paginate pages={data.pages} page={data.page} />
                 </>
             )}
         </>
