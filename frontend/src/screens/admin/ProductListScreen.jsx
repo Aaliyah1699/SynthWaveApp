@@ -2,7 +2,7 @@ import { LinkContainer } from 'react-router-bootstrap';
 import { Table, Button, Row, Col } from 'react-bootstrap';
 import { toast } from 'react-toastify';
 import { GrTrash } from 'react-icons/gr';
-import { TbDatabaseHeart, TbPencilBolt, TbPlus } from 'react-icons/tb';
+import { TbPencilBolt } from 'react-icons/tb';
 import {
     useGetAllProductsQuery,
     useDeleteProductMutation,
