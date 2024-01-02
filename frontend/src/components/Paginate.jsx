@@ -10,7 +10,7 @@ const Paginate = ({ pages, page, isAdmin = false }) => {
                         key={p + 1}
                         to={
                             !isAdmin
-                                ? `/pages/${p + 1}`
+                                ? `/page/${p + 1}`
                                 : `/admin/productlist/${p + 1}`
                         }
                     >
