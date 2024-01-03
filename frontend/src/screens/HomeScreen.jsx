@@ -3,6 +3,7 @@ import { Link, useParams } from 'react-router-dom';
 import { GiHypersonicBolt } from 'react-icons/gi';
 import { useGetAllProductsQuery } from '../slices/productsApiSlice';
 import Product from '../components/Product';
+import ProductCarousel from '../components/ProductCarousel';
 import Paginate from '../components/Paginate';
 import Loading from '../components/Loading';
 import Message from '../components/Message';
@@ -16,7 +17,9 @@ const HomeScreen = () => {
 
     return (
         <>
-            {keyword && (
+            {!keyword ? (
+                <ProductCarousel />
+            ) : (
                 <Link to='/' className='btn btn-dark kalnia-l btn-hover mb-4'>
                     Go Back
                 </Link>
