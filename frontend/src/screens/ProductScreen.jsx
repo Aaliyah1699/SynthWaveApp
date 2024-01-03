@@ -90,21 +90,21 @@ const ProductScreen = () => {
                                 fluid
                             />
                         </Col>
-                        <Col md={4} className='text-white bg-black '>
+                        <Col md={4} className=' '>
                             <ListGroup variant='flush'>
-                                <ListGroup.Item className='text-white bg-black'>
+                                <ListGroup.Item className=''>
                                     <h4 className='kalnia-m'>{product.name}</h4>
                                 </ListGroup.Item>
-                                <ListGroup.Item className='text-white bg-black'>
+                                <ListGroup.Item>
                                     <Rating
                                         value={product.rating}
                                         text={`${product.numReviews} reviews`}
                                     />
                                 </ListGroup.Item>
-                                <ListGroup.Item className='text-white bg-black kalnia-r'>
-                                    Price: ${product.price}
+                                <ListGroup.Item className=' kalnia-r'>
+                                    <strong>Price:</strong> ${product.price}
                                 </ListGroup.Item>
-                                <ListGroup.Item className='text-white bg-black kalnia-l'>
+                                <ListGroup.Item className=' kalnia-r'>
                                     <span className='kalnia-m'>
                                         Description:{' '}
                                     </span>{' '}
@@ -113,17 +113,21 @@ const ProductScreen = () => {
                             </ListGroup>
                         </Col>
                         <Col md={3}>
-                            <Card className='bg-black text-white kalnia-r'>
+                            <Card className=' kalnia-r'>
                                 <ListGroup variant='flush'>
-                                    <ListGroup.Item className='bg-black text-white'>
+                                    <ListGroup.Item className=''>
                                         <Row>
-                                            <Col>Price:</Col>
+                                            <Col className='kalnia-r'>
+                                                Price:
+                                            </Col>
                                             <Col>${product.price}</Col>
                                         </Row>
                                     </ListGroup.Item>
-                                    <ListGroup.Item className='bg-black text-white'>
+                                    <ListGroup.Item className=''>
                                         <Row>
-                                            <Col>Status:</Col>
+                                            <Col className='kalnia-r'>
+                                                Status:
+                                            </Col>
                                             <Col>
                                                 {product.countInStock > 0
                                                     ? 'In Stock'
@@ -132,8 +136,8 @@ const ProductScreen = () => {
                                         </Row>
                                     </ListGroup.Item>
                                     {product.countInStock > 0 && (
-                                        <ListGroup.Item className='bg-black text-white kalnia-r '>
-                                            <Row className='text-white bg-black'>
+                                        <ListGroup.Item className=' kalnia-r '>
+                                            <Row className=''>
                                                 <Col>Quantity:</Col>
                                                 <Col>
                                                     <Form.Control
@@ -147,7 +151,7 @@ const ProductScreen = () => {
                                                                 )
                                                             )
                                                         }
-                                                        className='bg-black text-white kalnia-r'
+                                                        className=' kalnia-r'
                                                     >
                                                         {[
                                                             ...Array(
@@ -166,7 +170,7 @@ const ProductScreen = () => {
                                             </Row>
                                         </ListGroup.Item>
                                     )}
-                                    <ListGroup.Item className='bg-black text-white'>
+                                    <ListGroup.Item className=''>
                                         <Button
                                             className='btn-block btn-dark neon-hover kalnia-l btn-hover'
                                             type='button'
@@ -272,8 +276,13 @@ const ProductScreen = () => {
                                     ) : (
                                         <Message>
                                             Please{' '}
-                                            <Link to='/login'>Sign In</Link> to
-                                            write a review
+                                            <Link
+                                                to='/login'
+                                                className='product-link'
+                                            >
+                                                Sign In
+                                            </Link>{' '}
+                                            to write a review
                                         </Message>
                                     )}
                                 </ListGroup.Item>

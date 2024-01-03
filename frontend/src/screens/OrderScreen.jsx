@@ -58,7 +58,7 @@ const OrderScreen = () => {
     function onApprove(data, actions) {
         return actions.order.capture().then(async function (details) {
             try {
-                await payOrder({ orderId, details });
+                await payOrder({ orderId, details }).unwrap();
                 refetch(); // change not paid to paid
                 toast.success('Payment Successful');
             } catch (error) {
@@ -106,7 +106,9 @@ const OrderScreen = () => {
     return isLoading ? (
         <Loading />
     ) : error ? (
-        <Message variant='danger' />
+        <Message variant='danger'>
+            {error?.data?.message || error.error}
+        </Message>
     ) : (
         <>
             <h5 className='kalnia-l'>

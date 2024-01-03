@@ -85,7 +85,7 @@ const LoginScreen = () => {
                                 ? `/register?redirect=${redirect}`
                                 : '/register'
                         }
-                        className='link product-link'
+                        className=' product-link'
                         style={{ textDecoration: 'underline' }}
                     >
                         Register

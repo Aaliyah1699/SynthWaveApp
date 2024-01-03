@@ -29,7 +29,7 @@ const SearchBox = () => {
             ></Form.Control>
             <Button
                 type='submit'
-                variant='dark'
+                variant='outline-light'
                 className='p-2 mx-2 btn-hover kalnia-l'
             >
                 Search

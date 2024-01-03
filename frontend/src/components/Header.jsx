@@ -33,7 +33,7 @@ const Header = () => {
 
     return (
         <header>
-            <Navbar bg='black' variant='dark' expand='md' collapseOnSelect>
+            <Navbar bg='dark' variant='dark' expand='md' collapseOnSelect>
                 <Container>
                     {/* Nav Title */}
                     <LinkContainer to='/'>
@@ -78,7 +78,7 @@ const Header = () => {
                                     title={userInfo.name}
                                     id='username'
                                     menuVariant='dark'
-                                    className='kalnia-r'
+                                    className='kalnia-r text-white'
                                 >
                                     <LinkContainer to='/profile'>
                                         <NavDropdown.Item>

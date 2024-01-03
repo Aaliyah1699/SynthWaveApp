@@ -98,7 +98,9 @@ const ProductEditScreen = () => {
                 {isLoading ? (
                     <Loading />
                 ) : error ? (
-                    <Message variant='danger'>{error}</Message>
+                    <Message variant='danger'>
+                        {error?.data?.message || error.error}
+                    </Message>
                 ) : (
                     <Form onSubmit={submitHandler}>
                         {/* Name */}
