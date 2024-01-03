@@ -11,7 +11,7 @@ import { Provider } from 'react-redux';
 import store from './store.js';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import App from './App.jsx';
-// import './index.css';
+import './index.css';
 import './App.css';
 import PrivateRoute from './components/PrivateRoute.jsx';
 import AdminRoute from './components/AdminRoute.jsx';
