@@ -7,6 +7,7 @@ import ProductCarousel from '../components/ProductCarousel';
 import Paginate from '../components/Paginate';
 import Loading from '../components/Loading';
 import Message from '../components/Message';
+import Meta from '../components/Meta';
 
 const HomeScreen = () => {
     const { pageNumber, keyword } = useParams();
@@ -33,7 +34,7 @@ const HomeScreen = () => {
                 </Message>
             ) : (
                 <>
-                    {' '}
+                    <Meta title='Happy Shopping' />{' '}
                     <h1 className='kalnia-m text-center p-3 m-2'>
                         Welcome To Gadget Grid{' '}
                         <GiHypersonicBolt className='neon-pink' />

@@ -16,10 +16,11 @@ import {
     useGetSingleProductQuery,
     useCreateReviewMutation,
 } from '../slices/productsApiSlice';
+import { addToCart } from '../slices/cartSlice';
 import Rating from '../components/Rating';
 import Loading from '../components/Loading';
 import Message from '../components/Message';
-import { addToCart } from '../slices/cartSlice';
+import Meta from '../components/Meta';
 
 const ProductScreen = () => {
     const { id: productId } = useParams();
@@ -80,7 +81,7 @@ const ProductScreen = () => {
                 </Message>
             ) : (
                 <>
-                    {' '}
+                    <Meta title={product.name} />{' '}
                     <Row>
                         <Col md={5}>
                             <Image
