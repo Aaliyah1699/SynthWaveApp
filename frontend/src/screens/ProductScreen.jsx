@@ -45,6 +45,7 @@ const ProductScreen = () => {
 
     const addToCartHandler = () => {
         dispatch(addToCart({ ...product, qty }));
+        setQty(1);
         //navigate('/cart');
     };
 
@@ -59,6 +60,8 @@ const ProductScreen = () => {
             }).unwrap();
             refetch();
             toast.success('Review created successfully');
+            setComment('');
+            setRating(0);
         } catch (err) {
             toast.error(err?.data?.message || err.error);
         }
@@ -269,7 +272,7 @@ const ProductScreen = () => {
                                         <Button
                                             disabled={loadingReview}
                                             type='submit'
-                                            className='btn-hover dives orbitron'
+                                            className='btn-hover mb-5 dives orbitron'
                                         >
                                             Submit
                                         </Button>

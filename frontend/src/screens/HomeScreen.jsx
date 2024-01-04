@@ -37,12 +37,12 @@ const HomeScreen = () => {
                 </Message>
             ) : (
                 <>
-                    <h1 className='tektur pink-bite text-center p-3 m-2'>
+                    <h1 className='doodle pink-bite text-center p-3 m-2'>
                         A SynthWave Showcase{' '}
                         <GiStripedSun className='synth-yellow' />
                     </h1>
                     <h2 className='tektur pink-bite pt-3'>
-                        Shop Synthwave Essentials
+                        Shop SynthWave Essentials
                     </h2>
                     <Row className='orbitron'>
                         {data.products.map((product) => (
