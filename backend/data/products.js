@@ -1,5 +1,4 @@
 const products = [
-
     {
         name: 'PS5Wave Synthwave Skin',
         image: '/images/skin.webp',
@@ -83,6 +82,150 @@ const products = [
         countInStock: 35,
         rating: 4.5,
         numReviews: 13,
+    },
+    {
+        name: 'RedWave Vintage Synth Tee',
+        image: '/images/red-shirt.jpg',
+        description:
+            'A classic red tee featuring iconic Synthwave aesthetics. Step into the retro future with style.',
+        brand: 'RetroThreads',
+        category: 'Apparel',
+        price: 29.99,
+        countInStock: 20,
+        rating: 4.7,
+        numReviews: 10,
+    },
+    {
+        name: 'SynthEuphoria - The Neon Chronicles',
+        image: '/images/album.webp',
+        description:
+            'Embark on a sonic journey with SynthEuphoria - an album that transports you to a neon-lit universe.',
+        brand: 'EpicWave Records',
+        category: 'Music',
+        price: 19.99,
+        countInStock: 30,
+        rating: 4.9,
+        numReviews: 15,
+    },
+    {
+        name: 'GamingWave Neon Mouse Pad',
+        image: '/images/mouse-pad.jpg',
+        description:
+            'Enhance your gaming setup with this Synthwave-inspired mouse pad. Glide into the future of gaming.',
+        brand: 'TechGlow',
+        category: 'Gaming Accessories',
+        price: 14.99,
+        countInStock: 25,
+        rating: 4.6,
+        numReviews: 8,
+    },
+    {
+        name: 'VinylGroove Synthwave Collection (2 Vinyls)',
+        image: '/images/vinyl.webp',
+        description:
+            'Dive into the nostalgia of Synthwave with this exclusive vinyl set. Each record tells a unique retro tale.',
+        brand: 'RetroBeats',
+        category: 'Music',
+        price: 39.99,
+        countInStock: 12,
+        rating: 4.8,
+        numReviews: 12,
+    },
+    {
+        name: 'NeonGroove Synthwave Hoodie',
+        image: '/images/hoodie.webp',
+        description:
+            'Stay warm in style with this cozy hoodie featuring vibrant Synthwave aesthetics. Perfect for cool evenings.',
+        brand: 'RetroChic Apparel',
+        category: 'Apparel',
+        price: 49.99,
+        countInStock: 18,
+        rating: 4.5,
+        numReviews: 11,
+    },
+    {
+        name: 'MonkeySynth Neon Poster',
+        image: '/images/monkey.jpg',
+        description:
+            'Add a touch of whimsy to your space with this MonkeySynth poster. A playful twist on Synthwave art.',
+        brand: 'NeonVibes Decor',
+        category: 'Home Decor',
+        price: 16.99,
+        countInStock: 22,
+        rating: 4.4,
+        numReviews: 9,
+    },
+    {
+        name: 'ArcadeWave Game 3 - Retro Adventure',
+        image: '/images/game.jpg',
+        description:
+            'Experience the thrill of an old-school arcade game with ArcadeWave Game 3. A pixelated journey into the Synthwave universe.',
+        brand: 'RetroGaming Studios',
+        category: 'Gaming',
+        price: 24.99,
+        countInStock: 15,
+        rating: 4.7,
+        numReviews: 14,
+    },
+    {
+        name: 'SynthButtons Retro Collection (Set of 10)',
+        image: '/images/buttons.jpg',
+        description:
+            'Elevate your style with these Synthwave-themed buttons. Perfect for adding a touch of retro to your accessories.',
+        brand: 'RetroWear',
+        category: 'Accessories',
+        price: 9.99,
+        countInStock: 35,
+        rating: 4.6,
+        numReviews: 13,
+    },
+    {
+        name: 'ConsoleCards Synthwave Deck',
+        image: '/images/cards.jpg',
+        description:
+            'Play your favorite card games with a Synthwave twist. ConsoleCards brings the nostalgic gaming vibes to your hands.',
+        brand: 'RetroDecks',
+        category: 'Gaming',
+        price: 11.99,
+        countInStock: 28,
+        rating: 4.8,
+        numReviews: 16,
+    },
+    {
+        name: 'SynthVibe Synthwave Plugin',
+        image: '/images/vst.jpg',
+        description:
+            'Transform your music production with SynthVibe, a cutting-edge plugin delivering authentic Synthwave sounds.',
+        brand: 'TechSynth Studios',
+        category: 'Software',
+        price: 79.99,
+        countInStock: 10,
+        rating: 4.9,
+        numReviews: 20,
+    },
+    {
+        name: 'RetroDream Synthwave Bed Set',
+        image: '/images/bed.webp',
+        description:
+            'Transform your bedroom into a Synthwave haven with the RetroDream bed set. Dive into the nostalgia of neon nights.',
+        brand: 'DreamWave Decor',
+        category: 'Home Decor',
+        price: 49.99,
+        countInStock: 15,
+        rating: 4.8,
+        numReviews: 14,
+    },
+    {
+        name: 'SynthDream Neon Lumbar Pillow',
+        image: '/images/pillow.jpg',
+        description:
+            "Enhance your comfort with the SynthDream lumbar pillow. Neon lights and retro vibes for a perfect night's rest.",
+        brand: 'DreamWave Decor',
+        category: 'Home Decor',
+        price: 19.99,
+        countInStock: 25,
+        rating: 4.8,
+        numReviews: 12,
     },
 ];
 
