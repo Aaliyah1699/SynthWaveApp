@@ -1,6 +1,9 @@
 import { LinkContainer } from 'react-router-bootstrap';
 import { Table, Button } from 'react-bootstrap';
-import { FaTrash, FaEdit, FaCheck, FaTimes } from 'react-icons/fa';
+import { FaTimes } from 'react-icons/fa';
+import { TfiTrash } from 'react-icons/tfi';
+import { MdEditRoad } from 'react-icons/md';
+import { RiCheckDoubleLine } from 'react-icons/ri';
 import {
     useDeleteUserMutation,
     useGetAllUsersQuery,
@@ -28,7 +31,7 @@ const UserListScreen = () => {
 
     return (
         <>
-            <h2 className='kalnia-r'>Users</h2>
+            <h2 className='tektur dives'>Users</h2>
             {loadingDelete && <Loading />}
             {isLoading ? (
                 <Loading />
@@ -37,13 +40,7 @@ const UserListScreen = () => {
                     {error?.data?.message || error.error}
                 </Message>
             ) : (
-                <Table
-                    striped
-                    hover
-                    responsive
-                    // variant='dark'
-                    className='table-sm kalnia-r'
-                >
+                <Table striped hover responsive className='table-sm tektur'>
                     <thead>
                         <tr>
                             <th>Id</th>
@@ -65,9 +62,11 @@ const UserListScreen = () => {
                                 </td>
                                 <td>
                                     {user.isAdmin ? (
-                                        <FaCheck style={{ color: 'green' }} />
+                                        <RiCheckDoubleLine
+                                            style={{ color: 'ffd319' }}
+                                        />
                                     ) : (
-                                        <FaTimes style={{ color: 'red' }} />
+                                        <FaTimes style={{ color: 'fd1d53' }} />
                                     )}
                                 </td>
 
@@ -78,22 +77,28 @@ const UserListScreen = () => {
                                                 to={`/admin/user/${user._id}/edit`}
                                                 style={{ marginRight: '10px' }}
                                             >
-                                                <Button
-                                                    className='btn-sm btn-hover kalnia-l'
-                                                    variant='dark'
-                                                >
-                                                    <FaEdit />
+                                                <Button className='btn-sm btn-hover '>
+                                                    <MdEditRoad
+                                                        className='pink-bite'
+                                                        style={{
+                                                            width: '20px',
+                                                            height: '20px',
+                                                        }}
+                                                    />
                                                 </Button>
                                             </LinkContainer>
                                             <Button
-                                                variant='danger'
-                                                className='btn-sm'
+                                                className='btn-sm btn-hover'
                                                 onClick={() =>
                                                     deleteHandler(user._id)
                                                 }
                                             >
-                                                <FaTrash
-                                                    style={{ color: 'white' }}
+                                                <TfiTrash
+                                                    style={{
+                                                        color: 'ff6c11',
+                                                        width: '20px',
+                                                        height: '20px',
+                                                    }}
                                                 />
                                             </Button>
                                         </>

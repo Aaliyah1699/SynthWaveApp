@@ -30,17 +30,17 @@ const PaymentScreen = () => {
     return (
         <FormContainer>
             <CheckoutSteps step1 step2 step3 />
-            <h2>Payment Method</h2>
+            <h1 className='tektur dives'>Payment Method</h1>
             {/* Form */}
             <Form onSubmit={submitHandler}>
                 <Form.Group>
-                    <Form.Label as='legend' className='kalnia-r'>
+                    <Form.Label as='legend' className='orbitron dives'>
                         Select Payment Method:
                     </Form.Label>
                     <Col>
                         <Form.Check
                             type='radio'
-                            className='my-2 kalnia-l'
+                            className='my-2 orbitron pink-bite'
                             label='PayPal or Credit Card'
                             id='PayPal'
                             name='paymentMethod'
@@ -50,11 +50,7 @@ const PaymentScreen = () => {
                         ></Form.Check>
                     </Col>
                 </Form.Group>
-                <Button
-                    type='submit'
-                    variant='dark'
-                    className='btn-hover kalnia-l'
-                >
+                <Button type='submit' className='btn-hover dives orbitron'>
                     Continue
                 </Button>
             </Form>

@@ -54,10 +54,10 @@ const RegisterScreen = () => {
 
     return (
         <FormContainer>
-            <h2>Sign Up</h2>
+            <h2 className='tektur dives'>Sign Up</h2>
             <Form onSubmit={submitHandler}>
                 {/* Name */}
-                <Form.Group controlId='name' className='my-3'>
+                <Form.Group controlId='name' className='my-3 orbitron dives'>
                     <Form.Label>Name:</Form.Label>
                     <Form.Control
                         type='text'
@@ -67,7 +67,7 @@ const RegisterScreen = () => {
                     ></Form.Control>
                 </Form.Group>
                 {/* Email */}
-                <Form.Group controlId='email' className='my-3'>
+                <Form.Group controlId='email' className='my-3 orbitron dives'>
                     <Form.Label>Email Address:</Form.Label>
                     <Form.Control
                         type='email'
@@ -77,7 +77,7 @@ const RegisterScreen = () => {
                     ></Form.Control>
                 </Form.Group>
                 {/* Password */}
-                <Form.Group controlId='password' className='my-3'>
+                <Form.Group controlId='password' className='my-3 orbitron dives'>
                     <Form.Label>Password:</Form.Label>
                     <Form.Control
                         type='password'
@@ -87,7 +87,7 @@ const RegisterScreen = () => {
                     ></Form.Control>
                 </Form.Group>
                 {/* Confirm Password */}
-                <Form.Group controlId='confirmPassword' className='my-3'>
+                <Form.Group controlId='confirmPassword' className='my-3 orbitron dives'>
                     <Form.Label>Confirm Password:</Form.Label>
                     <Form.Control
                         type='password'
@@ -100,8 +100,8 @@ const RegisterScreen = () => {
                 <Button
                     disabled={isLoading}
                     type='submit'
-                    variant='dark'
-                    className='mt-2 btn-hover'
+                    
+                    className='mt-2 btn-hover orbitron dives'
                 >
                     Register
                 </Button>
@@ -113,7 +113,7 @@ const RegisterScreen = () => {
                     Already have an account?{' '}
                     <Link
                         to={redirect ? `/login?redirect=${redirect}` : '/login'}
-                        className='link product-link'
+                        className='pink-bite'
                         style={{ textDecoration: 'underline' }}
                     >
                         Login

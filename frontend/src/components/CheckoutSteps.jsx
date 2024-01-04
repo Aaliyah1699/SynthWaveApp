@@ -3,18 +3,16 @@ import { LinkContainer } from 'react-router-bootstrap';
 
 const CheckoutSteps = ({ step1, step2, step3, step4 }) => {
     return (
-        <Nav className='justify-content-center mb-4 kalnia-l'>
+        <Nav className='justify-content-center mb-4 orbitron '>
             {/* Step1 Sign In*/}
             <Nav.Item>
                 {step1 ? (
                     <LinkContainer to='/login'>
-                        <Nav.Link className='link product-link'>
-                            Sign In
-                        </Nav.Link>
+                        <Nav.Link className='pink-bite'>Sign In</Nav.Link>
                     </LinkContainer>
                 ) : (
                     <Nav.Link
-                        className='text-light '
+                        className='sapphire '
                         style={{ opacity: '0.6' }}
                         disabled
                     >
@@ -26,13 +24,11 @@ const CheckoutSteps = ({ step1, step2, step3, step4 }) => {
             <Nav.Item>
                 {step2 ? (
                     <LinkContainer to='/shipping'>
-                        <Nav.Link className='link product-link'>
-                            Shipping
-                        </Nav.Link>
+                        <Nav.Link className='pink-bite'>Shipping</Nav.Link>
                     </LinkContainer>
                 ) : (
                     <Nav.Link
-                        className='text-light '
+                        className='sapphire'
                         style={{ opacity: '0.6' }}
                         disabled
                     >
@@ -44,13 +40,11 @@ const CheckoutSteps = ({ step1, step2, step3, step4 }) => {
             <Nav.Item>
                 {step3 ? (
                     <LinkContainer to='/payment'>
-                        <Nav.Link className='link product-link'>
-                            Payment
-                        </Nav.Link>
+                        <Nav.Link className='pink-bite'>Payment</Nav.Link>
                     </LinkContainer>
                 ) : (
                     <Nav.Link
-                        className='text-light '
+                        className='sapphire'
                         style={{ opacity: '0.6' }}
                         disabled
                     >
@@ -62,13 +56,11 @@ const CheckoutSteps = ({ step1, step2, step3, step4 }) => {
             <Nav.Item>
                 {step4 ? (
                     <LinkContainer to='/placeorder'>
-                        <Nav.Link className='link product-link'>
-                            Place Order
-                        </Nav.Link>
+                        <Nav.Link className='pink-bite'>Place Order</Nav.Link>
                     </LinkContainer>
                 ) : (
                     <Nav.Link
-                        className='text-light '
+                        className='sapphire'
                         style={{ opacity: '0.6' }}
                         disabled
                     >

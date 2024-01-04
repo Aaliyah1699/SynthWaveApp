@@ -18,7 +18,7 @@ const SearchBox = () => {
         }
     };
     return (
-        <Form onSubmit={submitHandler} className='d-flex kalnia-l'>
+        <Form onSubmit={submitHandler} className='d-flex orbitron'>
             <Form.Control
                 type='text'
                 name='q' // q for query
@@ -27,11 +27,7 @@ const SearchBox = () => {
                 placeholder='Search Products...'
                 className='mr-sm-2 ml-sm-5'
             ></Form.Control>
-            <Button
-                type='submit'
-                variant='outline-light'
-                className='p-2 mx-2 btn-hover kalnia-l'
-            >
+            <Button type='submit' className='p-2 mx-2 dives btn-hover'>
                 Search
             </Button>
         </Form>

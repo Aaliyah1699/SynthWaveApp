@@ -29,10 +29,10 @@ const ShippingScreen = () => {
     return (
         <FormContainer>
             <CheckoutSteps step1 step2 />
-            <h2>Shipping</h2>
+            <h1 className='tektur dives'>Shipping</h1>
             <Form onSubmit={submitHandler}>
                 {/* Address */}
-                <Form.Group controlId='address' className='my-2'>
+                <Form.Group controlId='address' className='my-2 orbitron dives'>
                     <Form.Label>Address:</Form.Label>
                     <Form.Control
                         type='text'
@@ -42,7 +42,7 @@ const ShippingScreen = () => {
                     ></Form.Control>
                 </Form.Group>
                 {/* City */}
-                <Form.Group controlId='city' className='my-2'>
+                <Form.Group controlId='city' className='my-2 orbitron dives'>
                     <Form.Label>City:</Form.Label>
                     <Form.Control
                         type='text'
@@ -52,7 +52,10 @@ const ShippingScreen = () => {
                     ></Form.Control>
                 </Form.Group>
                 {/* Postal Code */}
-                <Form.Group controlId='postalCode' className='my-2'>
+                <Form.Group
+                    controlId='postalCode'
+                    className='my-2 orbitron dives'
+                >
                     <Form.Label>Postal Code:</Form.Label>
                     <Form.Control
                         type='text'
@@ -62,7 +65,7 @@ const ShippingScreen = () => {
                     ></Form.Control>
                 </Form.Group>
                 {/* Country */}
-                <Form.Group controlId='country' className='my-2'>
+                <Form.Group controlId='country' className='my-2 orbitron dives'>
                     <Form.Label>Country:</Form.Label>
                     <Form.Control
                         type='text'
@@ -72,11 +75,7 @@ const ShippingScreen = () => {
                     ></Form.Control>
                 </Form.Group>
                 {/* Button */}
-                <Button
-                    type='submit'
-                    variant='dark'
-                    className='my-2 btn-hover kalnia-l'
-                >
+                <Button type='submit' className='my-2 btn-hover orbitron dives'>
                     Continue
                 </Button>
             </Form>

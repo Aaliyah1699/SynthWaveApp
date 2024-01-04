@@ -4,17 +4,17 @@ import { FaGithub } from 'react-icons/fa';
 const Footer = () => {
     const currentYear = new Date().getFullYear();
     return (
-        <footer className=''>
+        <footer className='planet-bg'>
             <Container>
                 <Row>
                     <Col className='text-center py-3'>
-                        <p className='kalnia-r'>
-                            Gadget Grid{' '}
+                        <p className='glitch pool-blue'>
+                            WAVE{' '}
                             <a
                                 href='https://github.com/Aaliyah1699'
                                 target='_blank'
                                 rel='noopener noreferrer'
-                                className='neon-pink neon-hover'
+                                className='pink-bite'
                             >
                                 <FaGithub />
                             </a>{' '}

@@ -11,13 +11,18 @@ const ProductCarousel = () => {
             {error?.data?.message || error.error}
         </Message>
     ) : (
-        <Carousel pause='hover' className='bg-dark mb-4 kalnia-r'>
+        <Carousel pause='hover' className='midnight mb-4 ' fade>
             {products.map((product) => (
                 <Carousel.Item key={product._id}>
                     <Link to={`/product/${product._id}`}>
-                        <Image src={product.image} alt={product.name} fluid />
-                        <Carousel.Caption className='carousel-caption '>
-                            <h2 className='text-white text-right'>
+                        <Image
+                            src={product.image}
+                            alt={product.name}
+                            fluid
+                            style={{ height: '500px', objectFit: 'cover' }}
+                        />
+                        <Carousel.Caption className='carousel-caption orbitron dives'>
+                            <h2 className=' text-right'>
                                 {product.name} (${product.price})
                             </h2>
                         </Carousel.Caption>

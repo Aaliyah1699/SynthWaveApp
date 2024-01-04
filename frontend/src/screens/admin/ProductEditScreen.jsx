@@ -86,13 +86,14 @@ const ProductEditScreen = () => {
         <>
             <Link
                 to='/admin/productlist'
-                className='btn btn-dark btn-hover kalnia-l my-3'
+                className='btn dives btn-hover orbitron my-3'
+                style={{ backgroundColor: '#3c4c5d' }}
             >
                 Go Back
             </Link>
             {/* Form */}
             <FormContainer>
-                <h2 className='kalnia-r'>Edit Product</h2>
+                <h2 className='tektur dives'>Edit Product</h2>
                 {loadingUpdate && <Loading />}
 
                 {isLoading ? (
@@ -104,7 +105,10 @@ const ProductEditScreen = () => {
                 ) : (
                     <Form onSubmit={submitHandler}>
                         {/* Name */}
-                        <Form.Group controlId='name' className='kalnia-r my-2'>
+                        <Form.Group
+                            controlId='name'
+                            className='orbitron my-2 dives'
+                        >
                             <Form.Label>Name:</Form.Label>
                             <Form.Control
                                 type='text'
@@ -114,7 +118,10 @@ const ProductEditScreen = () => {
                             ></Form.Control>
                         </Form.Group>
                         {/* Price */}
-                        <Form.Group controlId='price' className='kalnia-r my-2'>
+                        <Form.Group
+                            controlId='price'
+                            className='orbitron my-2 dives'
+                        >
                             <Form.Label>Price:</Form.Label>
                             <Form.Control
                                 type='number'
@@ -124,7 +131,10 @@ const ProductEditScreen = () => {
                             ></Form.Control>
                         </Form.Group>
                         {/* Image */}
-                        <Form.Group controlId='image' className='kalnia-r my-2'>
+                        <Form.Group
+                            controlId='image'
+                            className='orbitron my-2 dives'
+                        >
                             <Form.Label>Image:</Form.Label>
                             <Form.Control
                                 type='text'
@@ -140,7 +150,10 @@ const ProductEditScreen = () => {
                             {loadingUpload && <Loading />}
                         </Form.Group>
                         {/* Brand */}
-                        <Form.Group controlId='brand' className='kalnia-r my-2'>
+                        <Form.Group
+                            controlId='brand'
+                            className='orbitron my-2 dives'
+                        >
                             <Form.Label>Brand:</Form.Label>
                             <Form.Control
                                 type='text'
@@ -152,7 +165,7 @@ const ProductEditScreen = () => {
                         {/* Category */}
                         <Form.Group
                             controlId='category'
-                            className='kalnia-r my-2'
+                            className='orbitron my-2 dives'
                         >
                             <Form.Label>Category:</Form.Label>
                             <Form.Control
@@ -165,7 +178,7 @@ const ProductEditScreen = () => {
                         {/* Count in stock */}
                         <Form.Group
                             controlId='countInStock'
-                            className='kalnia-r my-2'
+                            className='orbitron my-2 dives'
                         >
                             <Form.Label>Count In Stock:</Form.Label>
                             <Form.Control
@@ -180,7 +193,7 @@ const ProductEditScreen = () => {
                         {/* Description */}
                         <Form.Group
                             controlId='description'
-                            className='kalnia-r my-2'
+                            className='orbitron my-2 dives'
                         >
                             <Form.Label>Description:</Form.Label>
                             <Form.Control
@@ -193,8 +206,7 @@ const ProductEditScreen = () => {
                         {/* Button */}
                         <Button
                             type='submit'
-                            variant='dark'
-                            className='my-2 kalnia-l btn-hover'
+                            className='my-2 orbitron dives btn-hover'
                         >
                             Update
                         </Button>

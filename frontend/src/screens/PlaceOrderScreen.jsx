@@ -55,10 +55,10 @@ const PlaceOrderScreen = () => {
                 <Col md={8}>
                     <ListGroup variant='flush'>
                         {/* Shipping */}
-                        <ListGroup.Item className='bg-black text kalnia-r'>
-                            <h3>Shipping:</h3>
-                            <p className='kalnia-l'>
-                                <strong>Address: </strong>
+                        <ListGroup.Item className='tektur planet-bg'>
+                            <h3 className='tektur dives'>Shipping:</h3>
+                            <p className='orbitron'>
+                                <strong className='dives'>Address: </strong>
                                 {cart.shippingAddress.address},{' '}
                                 {cart.shippingAddress.city}{' '}
                                 {cart.shippingAddress.postalCode},{' '}
@@ -66,16 +66,18 @@ const PlaceOrderScreen = () => {
                             </p>
                         </ListGroup.Item>
                         {/* Payment */}
-                        <ListGroup.Item className='bg-black text kalnia-r'>
-                            <h3>Payment Method:</h3>
-                            <p className='kalnia-l'>
-                                <strong>Method: </strong>
+                        <ListGroup.Item className='tektur planet-bg'>
+                            <h3 className='tektur dives'>Payment Method:</h3>
+                            <p className='orbitron'>
+                                <strong className='orbitron dives'>
+                                    Method:{' '}
+                                </strong>
                                 {cart.paymentMethod}
                             </p>
                         </ListGroup.Item>
                         {/* Order */}
-                        <ListGroup.Item className='bg-black text kalnia-r'>
-                            <h3>Order:</h3>
+                        <ListGroup.Item className='tektur planet-bg'>
+                            <h3 className='tektur dives'>Order:</h3>
                             {cart.cartItems.length === 0 ? (
                                 <Message>Your cart is empty</Message>
                             ) : (
@@ -84,7 +86,7 @@ const PlaceOrderScreen = () => {
                                     {cart.cartItems.map((item, index) => (
                                         <ListGroup.Item
                                             key={index}
-                                            className='bg-black text kalnia-r'
+                                            className='planet-bg'
                                         >
                                             <Row>
                                                 <Col md={1}>
@@ -92,12 +94,11 @@ const PlaceOrderScreen = () => {
                                                         src={item.image}
                                                         alt={item.name}
                                                         fluid
-                                                        // rounded
                                                     />
                                                 </Col>
                                                 <Col>
                                                     <Link
-                                                        className='link product-link'
+                                                        className='pink-bite'
                                                         to={`/products/${item.product}`}
                                                     >
                                                         {item.name}
@@ -105,7 +106,7 @@ const PlaceOrderScreen = () => {
                                                 </Col>
                                                 <Col
                                                     md={4}
-                                                    className='kalnia-l'
+                                                    className='orbitron'
                                                 >
                                                     {item.qty} x ${item.price} =
                                                     ${item.qty * item.price}
@@ -122,43 +123,48 @@ const PlaceOrderScreen = () => {
                 <Col md={4}>
                     <Card>
                         <ListGroup variant='flush'>
-                            <ListGroup.Item className='bg-black text kalnia-r'>
+                            {/* Title */}
+                            <ListGroup.Item className='planet-bg tektur dives'>
                                 <h3>Order Summary:</h3>
                             </ListGroup.Item>
-                            <ListGroup.Item className='bg-black text kalnia-r'>
+                            {/* Items price */}
+                            <ListGroup.Item className='orbitron planet-bg'>
                                 <Row>
-                                    <Col>Items Price:</Col>
-                                    <Col className='kalnia-l'>
+                                    <Col className='dives'>Items Price:</Col>
+                                    <Col className='orbitron'>
                                         ${cart.itemsPrice}
                                     </Col>
                                 </Row>
                             </ListGroup.Item>
-                            <ListGroup.Item className='bg-black text kalnia-r'>
+                            {/* Shipping */}
+                            <ListGroup.Item className='planet-bg orbitron'>
                                 <Row>
-                                    <Col>Shipping:</Col>
-                                    <Col className='kalnia-l'>
+                                    <Col className='dives'>Shipping:</Col>
+                                    <Col className='orbitron'>
                                         ${cart.shippingPrice}
                                     </Col>
                                 </Row>
                             </ListGroup.Item>
-                            <ListGroup.Item className='bg-black text kalnia-r'>
+                            {/* Tax */}
+                            <ListGroup.Item className='planet-bg orbitron'>
                                 <Row>
-                                    <Col>Tax:</Col>
-                                    <Col className='kalnia-l'>
+                                    <Col className='dives'>Tax:</Col>
+                                    <Col className='orbitron'>
                                         ${cart.taxPrice}
                                     </Col>
                                 </Row>
                             </ListGroup.Item>
-                            <ListGroup.Item className='bg-black text kalnia-r'>
+                            {/* Total */}
+                            <ListGroup.Item className='planet-bg orbitron'>
                                 <Row>
-                                    <Col>Total:</Col>
-                                    <Col className='kalnia-l'>
+                                    <Col className='dives'>Total:</Col>
+                                    <Col className='orbitron'>
                                         ${cart.totalPrice}
                                     </Col>
                                 </Row>
                             </ListGroup.Item>
                             {/* Error Message */}
-                            <ListGroup.Item className='bg-black text kalnia-r'>
+                            <ListGroup.Item className='orbitron planet-bg'>
                                 {error && (
                                     <Message variant='danger'>
                                         {error?.data?.message || error.error}
@@ -166,10 +172,10 @@ const PlaceOrderScreen = () => {
                                 )}
                             </ListGroup.Item>
                             {/* Button */}
-                            <ListGroup.Item className='bg-black text kalnia-l'>
+                            <ListGroup.Item className='planet-bg'>
                                 <Button
                                     type='button'
-                                    className='btn-block bg-dark btn-hover border-0 kalnia-l'
+                                    className='btn-block dives orbitron btn-hover border-0'
                                     disabled={cart.cartItems.length === 0}
                                     onClick={placeOrderHandler}
                                 >

@@ -3,7 +3,6 @@ import { Table, Form, Button, Row, Col } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { FaTimes } from 'react-icons/fa';
-
 import { toast } from 'react-toastify';
 import Message from '../components/Message';
 import Loading from '../components/Loading';
@@ -38,7 +37,6 @@ const ProfileScreen = () => {
         } else {
             try {
                 const res = await updateProfile({
-                    _id: userInfo._id,
                     name,
                     email,
                     password,
@@ -55,11 +53,14 @@ const ProfileScreen = () => {
         <Row>
             {/* Form with user data */}
             <Col md={3}>
-                <h2 className='kalnia-l'>My Profile</h2>
+                <h2 className='tektur dives'>My Profile</h2>
                 {/* Form */}
                 <Form onSubmit={submitHandler}>
                     {/* Name */}
-                    <Form.Group controlId='name' className='my-2 text kalnia-r'>
+                    <Form.Group
+                        controlId='name'
+                        className='my-2 orbitron dives'
+                    >
                         <Form.Label>Name:</Form.Label>
                         <Form.Control
                             type='text'
@@ -71,7 +72,7 @@ const ProfileScreen = () => {
                     {/* Email */}
                     <Form.Group
                         controlId='email'
-                        className='my-2  text kalnia-r'
+                        className='my-2 dives orbitron'
                     >
                         <Form.Label>Email:</Form.Label>
                         <Form.Control
@@ -84,7 +85,7 @@ const ProfileScreen = () => {
                     {/* Password */}
                     <Form.Group
                         controlId='password'
-                        className='my-2  text kalnia-r'
+                        className='my-2 dives orbitron'
                     >
                         <Form.Label>Password:</Form.Label>
                         <Form.Control
@@ -97,7 +98,7 @@ const ProfileScreen = () => {
                     {/* Confirm Password */}
                     <Form.Group
                         controlId='confirmPassword'
-                        className='my-2  text kalnia-r'
+                        className='my-2 dives orbitron'
                     >
                         <Form.Label>Confirm Password:</Form.Label>
                         <Form.Control
@@ -110,8 +111,7 @@ const ProfileScreen = () => {
                     {/* Button Update user info */}
                     <Button
                         type='submit'
-                        variant='dark'
-                        className='btn-hover kalnia-l mt-2'
+                        className='btn-hover dives orbitron mt-2'
                     >
                         Update Profile
                     </Button>
@@ -120,7 +120,7 @@ const ProfileScreen = () => {
             </Col>
             {/* Users orders */}
             <Col md={9}>
-                <h2 className='kalnia-l'>Order History</h2>
+                <h2 className='orbitron dives'>Order History</h2>
                 {isLoading ? (
                     <Loading />
                 ) : error ? (
@@ -133,8 +133,7 @@ const ProfileScreen = () => {
                         striped
                         hover
                         responsive
-                        // variant='dark'
-                        className='table-sm kalnia-r '
+                        className='table-sm orbitron '
                     >
                         <thead>
                             <tr>
@@ -162,24 +161,25 @@ const ProfileScreen = () => {
                                         {order.isPaid ? (
                                             order.paidAt.substring(0, 10)
                                         ) : (
-                                            <FaTimes style={{ color: 'red' }} />
+                                            <FaTimes
+                                                style={{ color: 'fd1d53' }}
+                                            />
                                         )}
                                     </td>
                                     <td>
                                         {order.isDelivered ? (
                                             order.deliveredAt.substring(0, 10)
                                         ) : (
-                                            <FaTimes style={{ color: 'red' }} />
+                                            <FaTimes
+                                                style={{ color: 'fd1d53' }}
+                                            />
                                         )}
                                     </td>
                                     <td>
                                         <LinkContainer
                                             to={`/order/${order._id}`}
                                         >
-                                            <Button
-                                                className='btn-sm btn-hover kalnia-l'
-                                                variant='dark'
-                                            >
+                                            <Button className='btn-sm btn-hover dives '>
                                                 Details
                                             </Button>
                                         </LinkContainer>

@@ -111,23 +111,31 @@ const OrderScreen = () => {
         </Message>
     ) : (
         <>
-            <h5 className='kalnia-l'>
+            <h5 className='tektur'>
                 <strong>Order #</strong> {order._id}
             </h5>
             <Row>
                 <Col md={8}>
                     <ListGroup variant='flush'>
                         {/* Order shipping confirmation */}
-                        <ListGroup.Item className='kalnia-r'>
-                            <h3>Shipping</h3>
-                            <p className='kalnia-l'>
-                                <strong>Name: </strong> {order.user.name}
+                        <ListGroup.Item className='orbitron planet-bg'>
+                            <h3 className='tektur dives'>Shipping</h3>
+                            <p className=''>
+                                <strong className='orbitron dives'>
+                                    Name:{' '}
+                                </strong>{' '}
+                                {order.user.name}
                             </p>
-                            <p className='kalnia-l'>
-                                <strong>Email: </strong> {order.user.email}
+                            <p className=''>
+                                <strong className='orbitron dives'>
+                                    Email:{' '}
+                                </strong>{' '}
+                                {order.user.email}
                             </p>
-                            <p className='kalnia-l'>
-                                <strong>Address: </strong>{' '}
+                            <p className=''>
+                                <strong className='orbitron dives'>
+                                    Address:{' '}
+                                </strong>{' '}
                                 {order.shippingAddress.address},{' '}
                                 {order.shippingAddress.city}{' '}
                                 {order.shippingAddress.postalCode},{' '}
@@ -146,10 +154,12 @@ const OrderScreen = () => {
                             )}
                         </ListGroup.Item>
                         {/* Payment */}
-                        <ListGroup.Item className='kalnia-r'>
-                            <h3>Payment Method</h3>
-                            <p className='kalnia-l'>
-                                <strong>Method: </strong>
+                        <ListGroup.Item className='orbitron planet-bg'>
+                            <h3 className='tektur dives'>Payment Method</h3>
+                            <p className=''>
+                                <strong className='orbitron dives'>
+                                    Method:{' '}
+                                </strong>
                                 {order.paymentMethod}
                             </p>
                             {/* Paid */}
@@ -162,12 +172,12 @@ const OrderScreen = () => {
                             )}
                         </ListGroup.Item>
                         {/* Order Items */}
-                        <ListGroup.Item className='kalnia-r'>
-                            <h3>Order Items</h3>
+                        <ListGroup.Item className='planet-bg'>
+                            <h3 className='tektur dives'>Order Items</h3>
                             {order.orderItems.map((item, index) => (
                                 <ListGroup.Item
                                     key={index}
-                                    className='kalnia-r'
+                                    className='orbitron dives planet-bg'
                                 >
                                     <Row>
                                         <Col md={1}>
@@ -179,7 +189,7 @@ const OrderScreen = () => {
                                         </Col>
                                         <Col>
                                             <Link
-                                                className='link product-link'
+                                                className='orbitron pink-bite'
                                                 to={`/product/${item.product}`}
                                             >
                                                 {item.name}
@@ -199,30 +209,30 @@ const OrderScreen = () => {
                 <Col md={4}>
                     <Card>
                         <ListGroup variant='flush'>
-                            <ListGroup.Item className=' kalnia-r'>
-                                <h3>Order Summary</h3>
+                            <ListGroup.Item className=' planet-bg'>
+                                <h3 className='tektur dives'>Order Summary</h3>
                             </ListGroup.Item>
-                            <ListGroup.Item className='kalnia-r'>
+                            <ListGroup.Item className='orbitron planet-bg'>
                                 <Row>
-                                    <Col>Items:</Col>
+                                    <Col className='dives'>Items:</Col>
                                     <Col>${order.itemsPrice}</Col>
                                 </Row>
                                 <Row>
-                                    <Col>Shipping:</Col>
+                                    <Col className='dives'>Shipping:</Col>
                                     <Col>${order.shippingPrice}</Col>
                                 </Row>
                                 <Row>
-                                    <Col>Tax:</Col>
+                                    <Col className='dives'>Tax:</Col>
                                     <Col>${order.taxPrice}</Col>
                                 </Row>
                                 <Row>
-                                    <Col>Order Total:</Col>
+                                    <Col className='dives'>Order Total:</Col>
                                     <Col>${order.totalPrice}</Col>
                                 </Row>
                             </ListGroup.Item>
                             {/* Pay order Button*/}
                             {!order.isPaid && (
-                                <ListGroup.Item className='kalnia-r'>
+                                <ListGroup.Item className='planet-bg'>
                                     {loadingPay && <Loading />}
                                     {isPending ? (
                                         <Loading />
@@ -252,10 +262,10 @@ const OrderScreen = () => {
                                 userInfo.isAdmin &&
                                 order.isPaid &&
                                 !order.isDelivered && (
-                                    <ListGroup.Item>
+                                    <ListGroup.Item className='planet-bg'>
                                         <Button
                                             type='button'
-                                            className='btn btn-block bg-dark kalnia-l btn-hover'
+                                            className='btn btn-block orbitron dives btn-hover'
                                             onClick={deliverOrderHandler}
                                         >
                                             Mark As Delivered

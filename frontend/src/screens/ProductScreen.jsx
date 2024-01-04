@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useParams, useNavigate } from 'react-router-dom';
 import {
@@ -25,7 +25,7 @@ import Meta from '../components/Meta';
 const ProductScreen = () => {
     const { id: productId } = useParams();
     const dispatch = useDispatch();
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
 
     const [qty, setQty] = useState(1);
     const [rating, setRating] = useState(0);
@@ -45,7 +45,7 @@ const ProductScreen = () => {
 
     const addToCartHandler = () => {
         dispatch(addToCart({ ...product, qty }));
-        navigate('/cart');
+        //navigate('/cart');
     };
 
     const submitHandler = async (e) => {
@@ -64,11 +64,16 @@ const ProductScreen = () => {
         }
     };
 
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
+
     return (
         <>
             <Link
-                className='btn btn-dark neon-hover kalnia-l btn-hover my-3'
+                className='btn dives orbitron btn-hover my-3'
                 to='/'
+                style={{ backgroundColor: '#3c4c5d' }}
             >
                 Go Back
             </Link>
@@ -88,44 +93,55 @@ const ProductScreen = () => {
                                 src={product.image}
                                 alt={product.name}
                                 fluid
+                                style={{ height: '400px', objectFit: 'cover' }}
                             />
                         </Col>
-                        <Col md={4} className=' '>
+                        <Col md={4} className='orbitron'>
                             <ListGroup variant='flush'>
-                                <ListGroup.Item className=''>
-                                    <h4 className='kalnia-m'>{product.name}</h4>
+                                {/* Product */}
+                                <ListGroup.Item className='dives planet-bg'>
+                                    <h4 className='tektur'>{product.name}</h4>
                                 </ListGroup.Item>
-                                <ListGroup.Item>
+                                {/* Rating */}
+                                <ListGroup.Item className='planet-bg tektur dives'>
                                     <Rating
                                         value={product.rating}
                                         text={`${product.numReviews} reviews`}
                                     />
                                 </ListGroup.Item>
-                                <ListGroup.Item className=' kalnia-r'>
-                                    <strong>Price:</strong> ${product.price}
+                                {/* Price */}
+                                <ListGroup.Item className='tektur planet-bg'>
+                                    <strong className='orbitron dives'>
+                                        Price:
+                                    </strong>{' '}
+                                    ${product.price}
                                 </ListGroup.Item>
-                                <ListGroup.Item className=' kalnia-r'>
-                                    <span className='kalnia-m'>
+                                {/* Description */}
+                                <ListGroup.Item className='tektur planet-bg'>
+                                    <span className='orbitron dives'>
                                         Description:{' '}
                                     </span>{' '}
                                     {product.description}
                                 </ListGroup.Item>
                             </ListGroup>
                         </Col>
+                        {/* Card */}
                         <Col md={3}>
-                            <Card className=' kalnia-r'>
+                            <Card className='orbitron'>
                                 <ListGroup variant='flush'>
-                                    <ListGroup.Item className=''>
+                                    {/*Price  */}
+                                    <ListGroup.Item className='tektur planet-bg'>
                                         <Row>
-                                            <Col className='kalnia-r'>
+                                            <Col className='dives orbitron'>
                                                 Price:
                                             </Col>
                                             <Col>${product.price}</Col>
                                         </Row>
                                     </ListGroup.Item>
-                                    <ListGroup.Item className=''>
+                                    {/* Status */}
+                                    <ListGroup.Item className='tektur planet-bg'>
                                         <Row>
-                                            <Col className='kalnia-r'>
+                                            <Col className='orbitron dives'>
                                                 Status:
                                             </Col>
                                             <Col>
@@ -135,9 +151,10 @@ const ProductScreen = () => {
                                             </Col>
                                         </Row>
                                     </ListGroup.Item>
+                                    {/* Quantity */}
                                     {product.countInStock > 0 && (
-                                        <ListGroup.Item className=' kalnia-r '>
-                                            <Row className=''>
+                                        <ListGroup.Item className='tektur planet-bg'>
+                                            <Row className='dives'>
                                                 <Col>Quantity:</Col>
                                                 <Col>
                                                     <Form.Control
@@ -151,7 +168,6 @@ const ProductScreen = () => {
                                                                 )
                                                             )
                                                         }
-                                                        className=' kalnia-r'
                                                     >
                                                         {[
                                                             ...Array(
@@ -170,9 +186,10 @@ const ProductScreen = () => {
                                             </Row>
                                         </ListGroup.Item>
                                     )}
-                                    <ListGroup.Item className=''>
+                                    {/* Button */}
+                                    <ListGroup.Item className='planet-bg'>
                                         <Button
-                                            className='btn-block btn-dark neon-hover kalnia-l btn-hover'
+                                            className='btn-block orbitron btn-hover dives'
                                             type='button'
                                             disabled={
                                                 product.countInStock === 0
@@ -187,105 +204,108 @@ const ProductScreen = () => {
                         </Col>
                     </Row>
                     {/* Reviews */}
-                    <Row className='review kalnia-r'>
+                    <Row className='review orbitron'>
                         <Col md={6}>
-                            <h3>Reviews</h3>
+                            <h3 className='tektur dives'>Reviews</h3>
                             {product.reviews.length === 0 && (
                                 <Message>No Reviews</Message>
                             )}
+                            {/* Create a review */}
+                            <ListGroup.Item className='planet-bg'>
+                                <h4 className='tektur dives'>Write a review</h4>
+                                {loadingReview && <Loading />}
+                                {userInfo ? (
+                                    <Form onSubmit={submitHandler}>
+                                        <Form.Group
+                                            controlId='rating'
+                                            className='my-2 dives'
+                                        >
+                                            <Form.Label>Rating:</Form.Label>
+                                            <Form.Control
+                                                as='select'
+                                                value={rating}
+                                                onChange={(e) =>
+                                                    setRating(
+                                                        Number(e.target.value)
+                                                    )
+                                                }
+                                            >
+                                                <option value=''>
+                                                    Select...
+                                                </option>
+                                                <option value='1'>
+                                                    1 - Poor
+                                                </option>
+                                                <option value='2'>
+                                                    2 - Fair
+                                                </option>
+                                                <option value='3'>
+                                                    3 - Good
+                                                </option>
+                                                <option value='4'>
+                                                    4 - Very Good
+                                                </option>
+                                                <option value='5'>
+                                                    5 - Excellent
+                                                </option>
+                                            </Form.Control>
+                                        </Form.Group>
+                                        {/* Comment */}
+                                        <Form.Group
+                                            className='my-2 dives'
+                                            controlId='comment'
+                                        >
+                                            <Form.Label>Comment:</Form.Label>
+                                            <Form.Control
+                                                as='textarea'
+                                                row='3'
+                                                required
+                                                value={comment}
+                                                onChange={(e) =>
+                                                    setComment(e.target.value)
+                                                }
+                                            ></Form.Control>
+                                        </Form.Group>
+                                        <Button
+                                            disabled={loadingReview}
+                                            type='submit'
+                                            className='btn-hover dives orbitron'
+                                        >
+                                            Submit
+                                        </Button>
+                                    </Form>
+                                ) : (
+                                    <Message>
+                                        Please{' '}
+                                        <Link
+                                            to='/login'
+                                            className='product-link'
+                                        >
+                                            Sign In
+                                        </Link>{' '}
+                                        to write a review
+                                    </Message>
+                                )}
+                            </ListGroup.Item>
+                            {/* List of reviews */}
                             <ListGroup variant='flush'>
                                 {product.reviews.map((review) => (
-                                    <ListGroup.Item key={review._id}>
-                                        <strong>{review.name}</strong>
+                                    <ListGroup.Item
+                                        key={review._id}
+                                        className='planet-bg'
+                                    >
+                                        <strong className='pink-bite'>
+                                            {review.name}
+                                        </strong>
                                         <Rating value={review.rating} />
                                         <p>
                                             {review.createdAt.substring(0, 10)}
                                         </p>
-                                        <p>{review.comment}</p>
+                                        <p className='dives'>
+                                            {review.comment}
+                                        </p>
                                     </ListGroup.Item>
                                 ))}
-                                {/* Create a review */}
-                                <ListGroup.Item>
-                                    <h4>Write a review</h4>
-                                    {loadingReview && <Loading />}
-                                    {userInfo ? (
-                                        <Form onSubmit={submitHandler}>
-                                            <Form.Group
-                                                controlId='rating'
-                                                className='my-2'
-                                            >
-                                                <Form.Label>Rating</Form.Label>
-                                                <Form.Control
-                                                    as='select'
-                                                    value={rating}
-                                                    onChange={(e) =>
-                                                        setRating(
-                                                            Number(
-                                                                e.target.value
-                                                            )
-                                                        )
-                                                    }
-                                                >
-                                                    <option value=''>
-                                                        Select...
-                                                    </option>
-                                                    <option value='1'>
-                                                        1 - Poor
-                                                    </option>
-                                                    <option value='2'>
-                                                        2 - Fair
-                                                    </option>
-                                                    <option value='3'>
-                                                        3 - Good
-                                                    </option>
-                                                    <option value='4'>
-                                                        4 - Very Good
-                                                    </option>
-                                                    <option value='5'>
-                                                        5 - Excellent
-                                                    </option>
-                                                </Form.Control>
-                                            </Form.Group>
-                                            {/* Comment */}
-                                            <Form.Group
-                                                className='my-2'
-                                                controlId='comment'
-                                            >
-                                                <Form.Label>Comment</Form.Label>
-                                                <Form.Control
-                                                    as='textarea'
-                                                    row='3'
-                                                    required
-                                                    value={comment}
-                                                    onChange={(e) =>
-                                                        setComment(
-                                                            e.target.value
-                                                        )
-                                                    }
-                                                ></Form.Control>
-                                            </Form.Group>
-                                            <Button
-                                                disabled={loadingReview}
-                                                type='submit'
-                                                variant='dark'
-                                                className='btn-hover kalnia-l'
-                                            >
-                                                Submit
-                                            </Button>
-                                        </Form>
-                                    ) : (
-                                        <Message>
-                                            Please{' '}
-                                            <Link
-                                                to='/login'
-                                                className='product-link'
-                                            >
-                                                Sign In
-                                            </Link>{' '}
-                                            to write a review
-                                        </Message>
-                                    )}
-                                </ListGroup.Item>
                             </ListGroup>
                         </Col>
                     </Row>

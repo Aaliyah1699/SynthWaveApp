@@ -20,7 +20,7 @@ const CartScreen = () => {
     const cart = useSelector((state) => state.cart);
     const { cartItems } = cart;
 
-    const addToCartHandler = async (product, qty) => {
+    const addToCartHandler = (product, qty) => {
         dispatch(addToCart({ ...product, qty }));
     };
     const removeFromCartHandler = async (id) => {
@@ -32,14 +32,16 @@ const CartScreen = () => {
 
     return (
         <Row>
-            <Col md={8} className='kalnia-m'>
-                <h1 style={{ marginBottom: '20px' }}>Shopping Cart</h1>
+            <Col md={8} className='orbitron'>
+                <h1 style={{ marginBottom: '20px' }} className='tektur dives'>
+                    Shopping Cart
+                </h1>
                 {cartItems.length === 0 ? (
                     <Message variant='danger'>
                         Your cart is empty.{' '}
                         <Link
                             to='/'
-                            className='product-link'
+                            className='planet'
                             style={{ textDecoration: 'underline' }}
                         >
                             Go Back
@@ -48,7 +50,10 @@ const CartScreen = () => {
                 ) : (
                     <ListGroup variant='flush'>
                         {cartItems.map((item) => (
-                            <ListGroup.Item key={item._id} className='bg-black'>
+                            <ListGroup.Item
+                                key={item._id}
+                                className='orbitron planet-bg'
+                            >
                                 <Row>
                                     <Col md={2}>
                                         <Image
@@ -61,12 +66,12 @@ const CartScreen = () => {
                                     <Col md={3}>
                                         <Link
                                             to={`/product/${item._id}`}
-                                            className='link neon-pink-hover'
+                                            className='pink-bite'
                                         >
                                             {item.name}
                                         </Link>
                                     </Col>
-                                    <Col md={2} style={{ color: 'white' }}>
+                                    <Col md={2} className='dives'>
                                         ${item.price}
                                     </Col>
                                     <Col md={2}>
@@ -74,7 +79,7 @@ const CartScreen = () => {
                                         <Form.Control
                                             as='select'
                                             value={item.qty}
-                                            className='bg-black text-white kalnia-r'
+                                            className=' '
                                             onChange={(e) =>
                                                 addToCartHandler(
                                                     item,
@@ -99,12 +104,14 @@ const CartScreen = () => {
                                     <Col md={2}>
                                         <Button
                                             type='button'
-                                            className='bg-black border-0'
+                                            className='border-0  orbitron btn-hover'
                                             onClick={() =>
                                                 removeFromCartHandler(item._id)
                                             }
                                         >
-                                            <GrTrash className='neon-pink neon-hover' />
+                                            <GrTrash
+                                                style={{ color: 'fd1d53' }}
+                                            />
                                         </Button>
                                     </Col>
                                 </Row>
@@ -113,13 +120,13 @@ const CartScreen = () => {
                     </ListGroup>
                 )}
             </Col>
-            <Col md={4} className='kalnia-m'>
+            <Col md={4} className='orbitron'>
                 <Card>
                     <ListGroup variant='flush'>
-                        <ListGroup.Item>
-                            <h4 className='kalnia-l'>
+                        <ListGroup.Item className='planet-bg'>
+                            <h4 className='orbitron dives'>
                                 Subtotal:{' '}
-                                <span className='kalnia-m'>
+                                <span className='tektur'>
                                     $
                                     {cartItems
                                         .reduce(
@@ -131,10 +138,10 @@ const CartScreen = () => {
                                 </span>
                             </h4>
                         </ListGroup.Item>
-                        <ListGroup.Item>
+                        <ListGroup.Item className='planet-bg'>
                             <Button
                                 type='button'
-                                className='btn-block btn-hover bg-dark kalnia-l'
+                                className='btn-block btn-hover dives orbitron'
                                 disabled={cartItems.length === 0}
                                 onClick={checkoutHandler}
                             >

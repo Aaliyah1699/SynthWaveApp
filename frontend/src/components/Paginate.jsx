@@ -7,6 +7,7 @@ const Paginate = ({ pages, page, isAdmin = false, keyword = '' }) => {
             <Pagination>
                 {[...Array(pages).keys()].map((p) => (
                     <LinkContainer
+                        className='orbitron dives'
                         key={p + 1}
                         to={
                             !isAdmin

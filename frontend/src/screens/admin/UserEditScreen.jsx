@@ -52,12 +52,13 @@ const UserEditScreen = () => {
         <>
             <Link
                 to='/admin/userlist'
-                className='btn btn-dark btn-hover kalnia-l my-3'
+                className='btn dives btn-hover orbitron my-3'
+                style={{ backgroundColor: '#3c4c5d' }}
             >
                 Go Back
             </Link>
             <FormContainer>
-                <h2>Edit User</h2>
+                <h2 className='tektur dives'>Edit User</h2>
                 {loadingUpdate && <Loading />}
 
                 {isLoading ? (
@@ -69,7 +70,10 @@ const UserEditScreen = () => {
                 ) : (
                     <Form onSubmit={submitHandler}>
                         {/* Name */}
-                        <Form.Group className='my-2' controlId='name'>
+                        <Form.Group
+                            className='my-2 orbitron dives'
+                            controlId='name'
+                        >
                             <Form.Label>Name:</Form.Label>
                             <Form.Control
                                 type='name'
@@ -79,7 +83,10 @@ const UserEditScreen = () => {
                             ></Form.Control>
                         </Form.Group>
                         {/* Email */}
-                        <Form.Group className='my-2' controlId='email'>
+                        <Form.Group
+                            className='my-2 orbitron dives'
+                            controlId='email'
+                        >
                             <Form.Label>Email Address:</Form.Label>
                             <Form.Control
                                 type='email'
@@ -89,7 +96,10 @@ const UserEditScreen = () => {
                             ></Form.Control>
                         </Form.Group>
                         {/* Admin */}
-                        <Form.Group className='my-2' controlId='isadmin'>
+                        <Form.Group
+                            className='my-2 orbitron dives'
+                            controlId='isadmin'
+                        >
                             <Form.Check
                                 type='checkbox'
                                 label='Is Admin'
@@ -100,8 +110,7 @@ const UserEditScreen = () => {
                         {/* Button */}
                         <Button
                             type='submit'
-                            variant='dark'
-                            className='btn-hover kalnia-l'
+                            className='btn-hover orbitron dives'
                         >
                             Update
                         </Button>

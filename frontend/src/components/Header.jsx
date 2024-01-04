@@ -1,7 +1,6 @@
 import { Navbar, Nav, Container, Badge, NavDropdown } from 'react-bootstrap';
-import { TbShoppingCartBolt, TbUserBolt } from 'react-icons/tb';
-import { CgMenuGridR } from 'react-icons/cg';
-import { TfiBolt } from 'react-icons/tfi';
+import { PiCarThin, PiBuildingsThin } from 'react-icons/pi';
+import { GiWaves } from 'react-icons/gi';
 import { useNavigate } from 'react-router-dom';
 import { LinkContainer } from 'react-router-bootstrap';
 import { useSelector, useDispatch } from 'react-redux';
@@ -33,36 +32,39 @@ const Header = () => {
 
     return (
         <header>
-            <Navbar bg='dark' variant='dark' expand='md' collapseOnSelect>
+            <Navbar
+                className='midnight sapph-shadow'
+                expand='md'
+                collapseOnSelect
+            >
                 <Container>
                     {/* Nav Title */}
-                    <LinkContainer to='/'>
-                        <Navbar.Brand className='fs-1 black-ops m-s-xxl neon-pink-hover'>
-                            G<TfiBolt className='neon-pink neon-hover' />G
+                    <LinkContainer to='/' className='pool-blue-active'>
+                        <Navbar.Brand className='fs-1 m-s-xl broken pool-blue'>
+                            WAVE
                         </Navbar.Brand>
                     </LinkContainer>
                     {/* Small screen toggle */}
                     <Navbar.Toggle aria-controls='basic-navbar-nav'>
-                        <CgMenuGridR className='neon-pink neon-hover' />
+                        <GiWaves className='pool-blue' />
                     </Navbar.Toggle>
                     <Navbar.Collapse id='basic-navbar-nav'>
-                        <Nav className='ms-auto'>
+                        <Nav className='ms-auto orbitron dives'>
                             {/* Search Box */}
                             <SearchBox />
                             {/* Cart */}
                             <LinkContainer to='/cart'>
                                 {/* Sign in */}
-                                <Nav.Link className='text-white kalnia-l neon-pink-hover'>
-                                    <TbShoppingCartBolt className='neon-pink' />{' '}
-                                    <span className='neon-pink-hover'>
-                                        Cart
-                                    </span>
+                                <Nav.Link className='orbitron dives'>
+                                    <PiCarThin className='pink-bite' />{' '}
+                                    <span className='orbitron dives'>Cart</span>
                                     {cartItems.length > 0 && (
                                         <Badge
                                             pill
-                                            style={{ marginLeft: '5px' }}
-                                            className='neon-pink kalnia-m'
-                                            bg='light'
+                                            style={{
+                                                marginLeft: '5px',
+                                            }}
+                                            className='orbitron dives'
                                         >
                                             {cartItems.reduce(
                                                 (a, c) => a + c.qty,
@@ -78,7 +80,7 @@ const Header = () => {
                                     title={userInfo.name}
                                     id='username'
                                     menuVariant='dark'
-                                    className='kalnia-r text-white'
+                                    className='orbitron'
                                 >
                                     <LinkContainer to='/profile'>
                                         <NavDropdown.Item>
@@ -91,14 +93,9 @@ const Header = () => {
                                 </NavDropdown>
                             ) : (
                                 <LinkContainer to='/login'>
-                                    <Nav.Link
-                                        className='text-white kalnia-l'
-                                        to='/login'
-                                    >
-                                        <TbUserBolt className='neon-pink' />
-                                        <span className='neon-pink-hover'>
-                                            Sign In
-                                        </span>
+                                    <Nav.Link className='' to='/login'>
+                                        <PiBuildingsThin className='pink-bite' />
+                                        <span className='dives'>Sign In</span>
                                     </Nav.Link>
                                 </LinkContainer>
                             )}
@@ -107,7 +104,7 @@ const Header = () => {
                                 <NavDropdown
                                     title='Admin'
                                     id='adminmenu'
-                                    className='kalnia-r '
+                                    className='orbitron '
                                     menuVariant='dark'
                                 >
                                     <LinkContainer to='/admin/userlist'>

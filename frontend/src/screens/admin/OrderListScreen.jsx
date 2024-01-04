@@ -10,7 +10,7 @@ const OrderListScreen = () => {
 
     return (
         <>
-            <h2 className='kalnia-r'>Orders</h2>
+            <h2 className='tektur dives'>Orders</h2>
             {isLoading ? (
                 <Loading />
             ) : error ? (
@@ -18,13 +18,7 @@ const OrderListScreen = () => {
                     {error?.data?.message || error.error}
                 </Message>
             ) : (
-                <Table
-                    striped
-                    hover
-                    responsive
-                    // variant='dark'
-                    className='table-sm kalnia-r'
-                >
+                <Table striped hover responsive className='table-sm tektur'>
                     <thead>
                         <tr>
                             <th>Id</th>
@@ -47,22 +41,19 @@ const OrderListScreen = () => {
                                     {order.isPaid ? (
                                         order.paidAt.substring(0, 10)
                                     ) : (
-                                        <FaTimes style={{ color: 'red' }} />
+                                        <FaTimes style={{ color: 'fd1d53' }} />
                                     )}
                                 </td>
                                 <td>
                                     {order.isDelivered ? (
                                         order.deliveredAt.substring(0, 10)
                                     ) : (
-                                        <FaTimes style={{ color: 'red' }} />
+                                        <FaTimes style={{ color: 'fd1d53' }} />
                                     )}
                                 </td>
                                 <td>
                                     <LinkContainer to={`/order/${order._id}`}>
-                                        <Button
-                                            className='btn-sm btn-hover kalnia-l'
-                                            variant='dark'
-                                        >
+                                        <Button className='btn-sm btn-hover orbitron dives'>
                                             Details
                                         </Button>
                                     </LinkContainer>

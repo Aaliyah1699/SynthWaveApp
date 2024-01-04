@@ -1,13 +1,12 @@
 import { Row, Col } from 'react-bootstrap';
 import { Link, useParams } from 'react-router-dom';
-import { GiHypersonicBolt } from 'react-icons/gi';
+import { GiStripedSun } from 'react-icons/gi';
 import { useGetAllProductsQuery } from '../slices/productsApiSlice';
 import Product from '../components/Product';
 import ProductCarousel from '../components/ProductCarousel';
 import Paginate from '../components/Paginate';
 import Loading from '../components/Loading';
 import Message from '../components/Message';
-import Meta from '../components/Meta';
 
 const HomeScreen = () => {
     const { pageNumber, keyword } = useParams();
@@ -21,7 +20,11 @@ const HomeScreen = () => {
             {!keyword ? (
                 <ProductCarousel />
             ) : (
-                <Link to='/' className='btn btn-dark kalnia-l btn-hover mb-4'>
+                <Link
+                    to='/'
+                    className='btn dives orbitron btn-hover mb-4'
+                    style={{ backgroundColor: '#3c4c5d' }}
+                >
                     Go Back
                 </Link>
             )}
@@ -34,13 +37,14 @@ const HomeScreen = () => {
                 </Message>
             ) : (
                 <>
-                    <Meta title='Happy Shopping' />{' '}
-                    <h1 className='kalnia-m text-center p-3 m-2'>
-                        Welcome To Gadget Grid{' '}
-                        <GiHypersonicBolt className='neon-pink' />
+                    <h1 className='tektur pink-bite text-center p-3 m-2'>
+                        A SynthWave Showcase{' '}
+                        <GiStripedSun className='synth-yellow' />
                     </h1>
-                    <h2 className='kalnia-l pt-3'>Latest Gadgets</h2>
-                    <Row className='kalnia-r'>
+                    <h2 className='tektur pink-bite pt-3'>
+                        Shop Synthwave Essentials
+                    </h2>
+                    <Row className='orbitron'>
                         {data.products.map((product) => (
                             <Col key={product._id} sm={12} md={6} lg={4} xl={3}>
                                 <Product product={product} />

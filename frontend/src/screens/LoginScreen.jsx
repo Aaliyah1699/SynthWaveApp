@@ -42,10 +42,10 @@ const LoginScreen = () => {
 
     return (
         <FormContainer>
-            <h2>Sign In</h2>
+            <h2 className='tektur dives'>Sign In</h2>
             <Form onSubmit={submitHandler}>
                 {/* Email */}
-                <Form.Group controlId='email' className='my-3'>
+                <Form.Group controlId='email' className='my-3 orbitron dives'>
                     <Form.Label>Email Address:</Form.Label>
                     <Form.Control
                         type='email'
@@ -55,7 +55,10 @@ const LoginScreen = () => {
                     ></Form.Control>
                 </Form.Group>
                 {/* Password */}
-                <Form.Group controlId='password' className='my-3'>
+                <Form.Group
+                    controlId='password'
+                    className='my-3 orbitron dives'
+                >
                     <Form.Label>Password:</Form.Label>
                     <Form.Control
                         type='password'
@@ -68,8 +71,7 @@ const LoginScreen = () => {
                 <Button
                     disabled={isLoading}
                     type='submit'
-                    variant='dark'
-                    className='mt-2 btn-hover'
+                    className='mt-2 btn-hover orbitron dives'
                 >
                     Sign In
                 </Button>
@@ -85,7 +87,7 @@ const LoginScreen = () => {
                                 ? `/register?redirect=${redirect}`
                                 : '/register'
                         }
-                        className=' product-link'
+                        className='pink-bite'
                         style={{ textDecoration: 'underline' }}
                     >
                         Register

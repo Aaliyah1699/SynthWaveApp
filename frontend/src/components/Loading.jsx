@@ -5,7 +5,7 @@ const Loading = () => {
         <Spinner
             animation='border'
             role='status'
-            variant='light'
+            variant='warning'
             style={{
                 width: '100px',
                 height: '100px',

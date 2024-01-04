@@ -1,8 +1,8 @@
 import { LinkContainer } from 'react-router-bootstrap';
 import { Table, Button, Row, Col } from 'react-bootstrap';
 import { toast } from 'react-toastify';
-import { GrTrash } from 'react-icons/gr';
-import { TbPencilBolt } from 'react-icons/tb';
+import { TfiTrash } from 'react-icons/tfi';
+import { MdEditRoad } from 'react-icons/md';
 import { useParams } from 'react-router-dom';
 import {
     useGetAllProductsQuery,
@@ -52,14 +52,14 @@ const ProductListScreen = () => {
     return (
         <Row className='align-items-center'>
             <Col>
-                <h2 className='kalnia-r'>Products</h2>
+                <h2 className='tektur dives'>Products</h2>
             </Col>
             <Col className='text-end'>
                 <Button
-                    className='btn-sm m-3 kalnia-l bg-dark'
+                    className='btn-sm m-3 orbitron btn-hover dives'
                     onClick={createProductHandler}
                 >
-                    <TbPencilBolt /> Create Product
+                    <MdEditRoad className='synth-yellow' /> Create Product
                 </Button>
             </Col>
             {loadingCreate && <Loading />}
@@ -72,12 +72,7 @@ const ProductListScreen = () => {
                 </Message>
             ) : (
                 <>
-                    <Table
-                        striped
-                        hover
-                        responsive
-                        className='kalnia-r table-sm'
-                    >
+                    <Table striped hover responsive className='tektur table-sm'>
                         <thead>
                             <tr>
                                 <th>Id</th>
@@ -101,22 +96,21 @@ const ProductListScreen = () => {
                                         <LinkContainer
                                             to={`/admin/product/${product._id}/edit`}
                                         >
-                                            <Button
-                                                className='neon-pink btn-hover btn-sm mx-2'
-                                                variant='dark'
-                                            >
-                                                <TbPencilBolt />
+                                            <Button className='neon-pink btn-hover btn-sm mx-2'>
+                                                <MdEditRoad className='pink-bite' />
                                             </Button>
                                         </LinkContainer>
                                         <Button
-                                            variant='dark'
-                                            className='btn-sm'
-                                            style={{ color: 'red' }}
+                                            className='btn-sm btn-hover'
                                             onClick={() =>
                                                 deleteHandler(product._id)
                                             }
                                         >
-                                            <GrTrash />
+                                            <TfiTrash
+                                                style={{
+                                                    color: 'ff6c11',
+                                                }}
+                                            />
                                         </Button>
                                     </td>
                                 </tr>

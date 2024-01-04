@@ -48,7 +48,7 @@ const Rating = ({ value, text }) => {
                     <IoStarOutline />
                 )}
             </span>
-            <span className='rating-text kalnia-l'>{text && text}</span>
+            <span className='rating-text'>{text && text}</span>
         </div>
     );
 };

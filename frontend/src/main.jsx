@@ -34,6 +34,7 @@ import UserEditScreen from './screens/admin/UserEditScreen.jsx';
 const router = createBrowserRouter(
     createRoutesFromElements(
         <Route path='/' element={<App />}>
+            {/* Public Routes */}
             <Route index={true} path='/' element={<HomeScreen />} />
             <Route path='/search/:keyword' element={<HomeScreen />} />
             <Route path='/page/:pageNumber' element={<HomeScreen />} />
@@ -75,7 +76,10 @@ const router = createBrowserRouter(
                 />
             </Route>
         </Route>
-    )
+    ),
+    {
+        shouldUpdateScroll: () => [0, 0],
+    }
 );
 
 ReactDOM.createRoot(document.getElementById('root')).render(
