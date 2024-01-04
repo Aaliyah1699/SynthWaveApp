@@ -16,10 +16,6 @@ connectDB(); // Connect to MongoDB
 
 const app = express();
 
-app.get('/', (req, res) => {
-    res.send('API is running...');
-});
-
 // Body parser middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -37,10 +33,6 @@ app.use('/api/upload', uploadRoutes);
 app.get('/api/config/paypal', (req, res) =>
     res.send({ clientId: process.env.PAYPAL_CLIENT_ID })
 );
-
-// Make uploads folder static
-const __dirname = path.resolve(); // set dirname to current directory
-app.use('/uploads', express.static(path.join(__dirname, '/uploads')));
 
 // Check if in production
 if (process.env.NODE_ENV === 'production') {
