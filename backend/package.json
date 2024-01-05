@@ -5,13 +5,7 @@
     "type": "module",
     "main": "server.js",
     "scripts": {
-        "start": "node backend/server.js",
-        "server": "node backend/server.js",
-        "client": "npm run dev --prefix frontend",
-        "dev": "concurrently \"npm run server\" \"npm run client\"",
-        "data:import": "node backend/seeder.js",
-        "data:destroy": "node backend/seeder.js -d",
-        "build": "npm install && npm install --prefix frontend && npm run build --prefix frontend"
+        "start": "node server"
     },
     "author": "Aaliyah Montgomery",
     "license": "ISC",
@@ -34,3 +28,4 @@
         "concurrently": "^8.2.2"
     }
 }
+
