@@ -11,6 +11,10 @@ import { errorHandler, notFound } from './middleware/errorMiddleware.js';
 import cookieParser from 'cookie-parser';
 import cors from 'cors';
 
+const port = process.env.PORT || 5000;
+
+// connectDB(); // Connect to MongoDB
+
 const app = express();
 
 // Body parser middleware
@@ -56,13 +60,10 @@ if (process.env.NODE_ENV === 'production') {
 app.use(notFound);
 app.use(errorHandler);
 
-const port = process.env.PORT || 5000;
-const start = async () => {
-    try {
-        await connectDB();
-        app.listen(port, console.log(`server listening on port ${port}`));
-    } catch (error) {
-        console.log(error);
-    }
-};
-start();
+connectDB().then(() => {
+    app.listen(port, () => {
+        console.log(`Server running on port ${port}...`);
+    });
+});
+
+// app.listen(port, () => console.log(`Server running on port ${port}...`));
