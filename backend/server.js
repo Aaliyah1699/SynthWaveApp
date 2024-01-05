@@ -9,6 +9,7 @@ import orderRoutes from './routes/orderRoutes.js';
 import uploadRoutes from './routes/uploadRoutes.js';
 import { errorHandler, notFound } from './middleware/errorMiddleware.js';
 import cookieParser from 'cookie-parser';
+import cors from 'cors'
 
 const port = process.env.PORT || 5000;
 
@@ -19,6 +20,9 @@ const app = express();
 // Body parser middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+// Cors
+app.use(cors())
 
 // Cookie parser
 app.use(cookieParser());
