@@ -9,7 +9,7 @@ import orderRoutes from './routes/orderRoutes.js';
 import uploadRoutes from './routes/uploadRoutes.js';
 import { errorHandler, notFound } from './middleware/errorMiddleware.js';
 import cookieParser from 'cookie-parser';
-import cors from 'cors'
+import cors from 'cors';
 
 const port = process.env.PORT || 5000;
 
@@ -22,7 +22,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Cors
-app.use(cors())
+app.use(cors());
 
 // Cookie parser
 app.use(cookieParser());
@@ -38,18 +38,19 @@ app.get('/api/config/paypal', (req, res) =>
     res.send({ clientId: process.env.PAYPAL_CLIENT_ID })
 );
 
-// Check if in production
+// For production
 if (process.env.NODE_ENV === 'production') {
     const __dirname = path.resolve();
     app.use('/uploads', express.static('/var/data/uploads'));
-    app.use(express.static(path.join(__dirname, '/frontend/dist')));
+    app.use(express.static(path.join(__dirname, 'frontend', 'dist')));
 
     app.get('*', (req, res) =>
         res.sendFile(path.resolve(__dirname, 'frontend', 'dist', 'index.html'))
     );
 } else {
+    // For development
     const __dirname = path.resolve();
-    app.use('/uploads', express.static(path.join(__dirname, '/uploads')));
+    app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
     app.get('/', (req, res) => {
         res.send('API is running....');
     });
