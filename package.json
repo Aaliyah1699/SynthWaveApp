@@ -13,11 +13,11 @@
         "data:destroy": "node backend/seeder.js -d",
         "build": "npm install && npm install --prefix frontend && npm run build --prefix frontend"
     },
-    "author": "Aaliyah Montgomery",
-    "license": "ISC",
     "engines": {
         "node": ">=18.0.0"
     },
+    "author": "Aaliyah Montgomery",
+    "license": "ISC",
     "dependencies": {
         "bcryptjs": "^2.4.3",
         "colors": "^1.4.0",
