@@ -7,7 +7,7 @@ const ProductCarousel = () => {
     const { data: products, isLoading, error } = useGetTopProductsQuery();
 
     return isLoading ? null : error ? (
-        <Message variant='danger'>
+        <Message variant='info'>
             {error?.data?.message || error.error}
         </Message>
     ) : (
@@ -19,7 +19,11 @@ const ProductCarousel = () => {
                             src={product.image}
                             alt={product.name}
                             fluid
-                            style={{ height: '500px', objectFit: 'cover' }}
+                            style={{
+                                height: '500px',
+                                width: '600px',
+                                objectFit: 'cover',
+                            }}
                         />
                         <Carousel.Caption className='carousel-caption orbitron dives'>
                             <h2 className=' text-right'>

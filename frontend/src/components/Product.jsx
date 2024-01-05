@@ -12,7 +12,7 @@ const Product = ({ product }) => {
         <Card className='my-2 p-2 card-shadow orbitron midnight'>
             <Link to={`/product/${product._id}`}>
                 <Card.Img
-                    src={`/uploads/${product.image}`}
+                    src={product.image}
                     variant='top'
                     style={{ height: '200px', objectFit: 'cover' }}
                 />

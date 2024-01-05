@@ -16,14 +16,13 @@ const PlaceOrderScreen = () => {
 
     const [createOrder, { isLoading, error }] = useCreateOrderMutation();
 
-    useEffect(() => {
-        if (!cart.shippingAddress.address) {
-            navigate('/shipping');
-        } else if (!cart.paymentMethod) {
-            navigate('/payment');
-        }
-    }, [cart.paymentMethod, cart.shippingAddress.address, navigate]);
-
+     useEffect(() => {
+         if (!cart.shippingAddress.address) {
+             navigate('/shipping');
+         } else if (!cart.paymentMethod) {
+             navigate('/payment');
+         }
+     }, [cart.paymentMethod, cart.shippingAddress.address, navigate]);
     const dispatch = useDispatch();
     const placeOrderHandler = async () => {
         try {
@@ -166,7 +165,7 @@ const PlaceOrderScreen = () => {
                             {/* Error Message */}
                             <ListGroup.Item className='orbitron planet-bg'>
                                 {error && (
-                                    <Message variant='danger'>
+                                    <Message variant='info'>
                                         {error?.data?.message || error.error}
                                     </Message>
                                 )}

@@ -84,7 +84,7 @@ const ProductScreen = () => {
             {isLoading ? (
                 <Loading />
             ) : error ? (
-                <Message variant='danger'>
+                <Message variant='info'>
                     {error?.data?.message || error.error}
                 </Message>
             ) : (
@@ -93,7 +93,7 @@ const ProductScreen = () => {
                     <Row>
                         <Col md={5}>
                             <Image
-                                src={`/uploads/${product.image}`}
+                                src={product.image}
                                 alt={product.name}
                                 fluid
                                 style={{ height: '400px', objectFit: 'cover' }}

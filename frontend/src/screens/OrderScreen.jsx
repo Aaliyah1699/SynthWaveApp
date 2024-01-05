@@ -106,7 +106,7 @@ const OrderScreen = () => {
     return isLoading ? (
         <Loading />
     ) : error ? (
-        <Message variant='danger'>
+        <Message variant='info'>
             {error?.data?.message || error.error}
         </Message>
     ) : (
@@ -148,7 +148,7 @@ const OrderScreen = () => {
                                     {order.deliveredAt.substring(0, 10)}
                                 </Message>
                             ) : (
-                                <Message variant='danger'>
+                                <Message variant='info'>
                                     Not Delivered
                                 </Message>
                             )}
@@ -168,7 +168,7 @@ const OrderScreen = () => {
                                     Paid on: {order.paidAt.substring(0, 10)}
                                 </Message>
                             ) : (
-                                <Message variant='danger'>Not Paid</Message>
+                                <Message variant='info'>Not Paid</Message>
                             )}
                         </ListGroup.Item>
                         {/* Order Items */}

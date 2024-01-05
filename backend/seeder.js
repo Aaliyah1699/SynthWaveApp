@@ -10,6 +10,8 @@ import connectDB from './config/db.js';
 dotenv.config();
 connectDB();
 
+// Seed products and users into database
+
 const importData = async () => {
     try {
         await Order.deleteMany();
@@ -53,4 +55,3 @@ if (process.argv[2] === '-d') {
 } else {
     importData();
 }
-

@@ -37,7 +37,7 @@ const CartScreen = () => {
                     Shopping Cart
                 </h1>
                 {cartItems.length === 0 ? (
-                    <Message variant='danger'>
+                    <Message variant='info'>
                         Your cart is empty.{' '}
                         <Link
                             to='/'
