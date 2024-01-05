@@ -15,8 +15,8 @@ export default defineConfig({
     ],
     server: {
         proxy: {
-            '/api': 'http://localhost:5000',
-            '/uploads': 'http://localhost:5000',
+            '/api': 'https://synthwave-app.onrender.com',
+            '/uploads': 'https://synthwave-app.onrender.com',
         },
     },
 });
