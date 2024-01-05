@@ -1,4 +1,10 @@
-export const BASE_URL = 'https://synthwave-app.onrender.com';
+import axios from 'axios';
+
+export const BASE_URL = axios.create({
+    baseURL: 'https://synthwave-app.onrender.com',
+});
+
+// export const BASE_URL = 'https://synthwave-app.onrender.com';
 export const PRODUCTS_URL = `${BASE_URL}/api/products`;
 export const USERS_URL = `${BASE_URL}/api/users`;
 export const ORDERS_URL = `${BASE_URL}/api/orders`;
