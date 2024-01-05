@@ -93,7 +93,7 @@ const ProductScreen = () => {
                     <Row>
                         <Col md={5}>
                             <Image
-                                src={product.image}
+                                src={`/uploads/${product.image}`}
                                 alt={product.name}
                                 fluid
                                 style={{ height: '400px', objectFit: 'cover' }}
