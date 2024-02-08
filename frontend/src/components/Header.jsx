@@ -41,7 +41,7 @@ const Header = () => {
                     {/* Nav Title */}
                     <LinkContainer to='/' className='pool-blue-active'>
                         <Navbar.Brand className='fs-1 m-s-xl broken pool-blue'>
-                         <span className='pink-bite'>Synth</span>WAVE
+                         <span className='pink-bite'>SYNTH</span>WAVE
                         </Navbar.Brand>
                     </LinkContainer>
                     {/* Small screen toggle */}
