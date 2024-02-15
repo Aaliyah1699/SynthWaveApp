@@ -3,6 +3,8 @@
 Welcome to SynthWave, your ultimate destination for all things futuristic and trendy! 🚀🌟
 [Visit SynthWave Website](https://synthwave-app.onrender.com)
 
+# Check out my [Portfolio💜](https://aaliyahm-portfolio.netlify.app/) 
+
 ## Overview
 
 SynthWave is a cutting-edge MERN full-stack e-commerce application, meticulously crafted with JavaScript and powered by the dynamic duo of React and Redux. Dive into the realm of modern technology and sleek designs as you explore our wide range of products.
