@@ -4,6 +4,8 @@ import Product from '../models/ProductModel.js';
 import { calcPrices } from '../utils/calcPrices.js';
 import { verifyPayPalPayment, checkIfNewTransaction } from '../utils/paypal.js';
 
+// Time complexity: O(n)
+// Space complexity: O(n)
 // Create new order // route -> POST /api/orders // access => Private
 const addOrderItems = asyncHandler(async (req, res) => {
     const { orderItems, shippingAddress, paymentMethod } = req.body;
@@ -51,13 +53,18 @@ const addOrderItems = asyncHandler(async (req, res) => {
     }
 });
 
+// Time complexity: O(n)
+// Space complexity: O(n)
 //  Get logged in user orders // @route ->  GET /api/orders/myorders // access => Private
 const getMyOrders = asyncHandler(async (req, res) => {
     const orders = await Order.find({ user: req.user._id });
     res.status(200).json(orders);
 });
 
-// Get order by ID // route ->  GET /api/orders/:id // access => Private
+// Get Order by ID function: retrieves an order by ID
+// Time complexity: O(1)
+// Space complexity: O(1)
+// Route ->  GET /api/orders/:id // access => Private
 const getOrderById = asyncHandler(async (req, res) => {
     const order = await Order.findById(req.params.id).populate(
         'user',
@@ -72,7 +79,10 @@ const getOrderById = asyncHandler(async (req, res) => {
     }
 });
 
-// Update order to paid // route  -> PUT /api/orders/:id/pay // access => Private
+// Update Order to Paid: Updates an order to paid and verifies payment using PayPal
+// Time complexity: O(1)
+// Space complexity: O(1)
+// Route  -> PUT /api/orders/:id/pay // access => Private
 const updateOrderToPaid = asyncHandler(async (req, res) => {
     // Verify the order as paid
     const { verified, value } = await verifyPayPalPayment(req.body.id);
@@ -107,7 +117,10 @@ const updateOrderToPaid = asyncHandler(async (req, res) => {
     }
 });
 
-// Update order to delivered // route ->  PUT /api/orders/:id/deliver // access => Private/Admin
+// Update Order to Delivered: marks an order as delivered
+// Time complexity: O(1)
+// Space complexity: O(1)
+// Route ->  PUT /api/orders/:id/deliver // access => Private/Admin
 const updateOrderToDelivered = asyncHandler(async (req, res) => {
     const order = await Order.findById(req.params.id);
 
@@ -124,7 +137,9 @@ const updateOrderToDelivered = asyncHandler(async (req, res) => {
     }
 });
 
-//  Get all orders // route  -> GET /api/orders // access => Private/Admin
+// Get All Orders: retrieves all orders (requires admin or private access)
+// Time complexity: O(n) - potentially linear time for database retrieval (depending on size and indexing)
+// Route  -> GET /api/orders // access => Private/Admin
 const getOrders = asyncHandler(async (req, res) => {
     const orders = await Order.find({}).populate('user', 'id name');
     res.status(200).json(orders);
