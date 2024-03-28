@@ -1,7 +1,10 @@
 import asyncHandler from '../middleware/asyncHandler.js';
 import Product from '../models/ProductModel.js';
 
-// Fetch all products  // route -> GET /api/products // access => Public
+// Get all products with pagination and keyword search (case-insensitive)
+// Time complexity: O(n) worst case (no name index), O(log n) likely case (name index)
+// Space complexity: O(1)
+// Route -> GET /api/products // access => Public
 const getAllProducts = asyncHandler(async (req, res) => {
     const pageSize = process.env.PAGE_LIMIT;
     const page = Number(req.query.pageNumber) || 1;
@@ -22,7 +25,10 @@ const getAllProducts = asyncHandler(async (req, res) => {
     res.json({ products, page, pages: Math.ceil(count / pageSize) });
 });
 
-// Get single product by id  // route -> GET /api/products/:id // access => Public
+// Get a single product by its ID
+// Time complexity: O(1) average case (ID index), O(n) worst case (no index)
+// Space complexity: O(1)
+// Route -> GET /api/products/:id // access => Public
 const getSingleProduct = asyncHandler(async (req, res) => {
     const product = await Product.findById(req.params.id);
 
@@ -34,7 +40,10 @@ const getSingleProduct = asyncHandler(async (req, res) => {
     }
 });
 
-// Create product // route -> POST /api/products // access => Private (Admin)
+// Create a new product 
+// Time complexity: O(1) 
+// Space complexity: O(1)
+// Route -> POST /api/products // access => Private (Admin)
 const createProduct = asyncHandler(async (req, res) => {
     const product = new Product({
         name: 'Sample name',
@@ -52,7 +61,10 @@ const createProduct = asyncHandler(async (req, res) => {
     res.status(201).json(createdProduct);
 });
 
-// Update product // route -> PUT /api/products/:id // access => Private (Admin)
+// Update an existing product by ID
+// Time complexity: O(1) average case (ID index), O(n) worst case (no index)
+// Space complexity: O(1)
+// Route -> PUT /api/products/:id // access => Private (Admin)
 const updateProduct = asyncHandler(async (req, res) => {
     const { name, price, description, image, brand, category, countInStock } =
         req.body;
@@ -76,7 +88,10 @@ const updateProduct = asyncHandler(async (req, res) => {
     }
 });
 
-// Delete product // route -> DELETE /api/products/:id // access => Private (Admin)
+// Delete a product by ID
+// Time complexity: O(1) average case (ID index), O(n) worst case (no index)
+// Space complexity: O(1)
+// Route -> DELETE /api/products/:id // access => Private (Admin)
 const deleteProduct = asyncHandler(async (req, res) => {
     const product = await Product.findById(req.params.id);
 
@@ -89,7 +104,10 @@ const deleteProduct = asyncHandler(async (req, res) => {
     }
 });
 
-// Create new review // route -> POST /api/products/:id/reviews // access => Private
+// Create a new review for a product by the logged-in user
+// Time complexity: O(n) worst case (many reviews, linear duplicate check), O(1) amortized average
+// Space complexity: O(1)
+// Route -> POST /api/products/:id/reviews // access => Private
 const createProductReview = asyncHandler(async (req, res) => {
     const { rating, comment } = req.body;
 
@@ -128,7 +146,10 @@ const createProductReview = asyncHandler(async (req, res) => {
     }
 });
 
-// Get top rated products // route -> GET /api/products/top // access => Public
+// Get the top 3 products sorted by rating (descending)
+// Time complexity: O(n log n) worst case (sorting all products)
+// Space complexity: O(n) worst case (all products in memory for sorting)
+// Route -> GET /api/products/top // access => Public
 const getTopProducts = asyncHandler(async (req, res) => {
     const products = await Product.find({}).sort({ rating: -1 }).limit(3);
 
