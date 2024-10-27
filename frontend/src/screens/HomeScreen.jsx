@@ -38,7 +38,7 @@ const HomeScreen = () => {
             ) : (
                 <>
                     <h1 className='doodle pink-bite text-center p-3 m-2'>
-                        A SynthWave Showcase{' '}
+                         SynthWave Showcase{' '}
                         <GiStripedSun className='synth-yellow' />
                     </h1>
                     <h2 className='tektur pink-bite pt-3'>
