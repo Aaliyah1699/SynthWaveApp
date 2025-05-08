@@ -14,7 +14,7 @@
         "build": "npm install && npm install --prefix frontend && npm run build --prefix frontend"
     },
     "engines": {
-        "node": ">=18.0.0"
+        "node": "20.x"
     },
     "author": "Aaliyah Montgomery",
     "license": "ISC",
